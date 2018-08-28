@@ -1,0 +1,10 @@
+<section class="container-fluid my-3 custRow">
+  <div class="row">
+    <div class="col-md-12 ">
+      <div class="whiteBg tabContent active_link topArrow usrtoparrowPos ">
+        <app-add-customer-agency [popType]="'customer'"></app-add-customer-agency>
+
+      </div>
+    </div>
+  </div>
+</section>

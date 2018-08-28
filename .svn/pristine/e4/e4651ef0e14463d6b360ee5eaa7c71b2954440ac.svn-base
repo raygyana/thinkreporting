@@ -1,0 +1,60 @@
+<section class="container-fluid my-3 custRow ">
+  <div class="row ">
+    <div class="col-md-12 ">
+      <div class="whiteBg tabContent active_link topArrow topArrowPosition1 ">
+        <form id="searchForm" class="form-horizontal" method="post" novalidate="novalidate">
+          <div class="content-box-inner ">
+            <div class="row align-items-center ">
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="form-group col-md-6 ">
+              <label for="LastName ">Operator </label>
+              <input id="operator" name="operator" type="text" class="form-control " [(ngModel)]="editdocumentReferenceModel.operator.value"
+                readonly>
+            </div>
+
+            <div class="form-group col-md-6 ">
+              <label for="Initial ">Description </label>
+              <input id="description" name="description" type="text" class="form-control " [(ngModel)]="editdocumentReferenceModel.description.value">
+            </div>
+          </div>
+
+          <div class="row ">
+            <div class="form-group col-md-6 ">
+              <label for="type">Type</label>
+              <input id="type" name="type" type="text" class="form-control " [(ngModel)]="editdocumentReferenceModel.type.value" readonly>
+            </div>
+            <div class="form-group col-md-6 ">
+              <label for="type">ID</label>
+              <input id="id" name="id" type="text" class="form-control " [(ngModel)]="editdocumentReferenceModel.id.value" readonly>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="form-group col-md-6 ">
+              <div class="form-check form-check-inline">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="active" name="active" [(ngModel)]="editdocumentReferenceModel.active.value">
+                  <span class="custom-control-label">Active</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- <div id="AddressLookup" class="group">last block</div> -->
+          <div class="row ">
+
+            <div class="form-group col-md-12 text-right ">
+
+              <div class="right popup-border-btn col-md-12 ">
+                <button type="submit" class="btn btn-primary" (click)="doOnSubmit('Save')">
+                  <i class="fa fa-save " aria-hidden="true "></i> update
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+.agGridSize {
+  /* position: relative;
+      border-left: 10px; */
+  width: 100% !important;
+  white-space: nowrap;
+}

@@ -1,0 +1,75 @@
+<ng-template [ngIf]="depositSummary">
+<h3> {{title}}</h3>
+<div class="modal-body">
+
+  <div class="clearfix"></div>
+  <form #baseForm="ngForm" name="form">
+    <div class="row">
+      <div class="col-12">
+        <div class="agGridSize">
+          <app-ag-grid [name]="'paymentsReports'" [myGridOptions]="gridOptions" (myGridReady)="doOnGridReadyDepositSummaryPaymentsReports($event)"></app-ag-grid>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 text-right my-3">
+      <button type="button" (click)="openDepositDetails()" class="btn btn-primary">
+        <i></i>Deposit Details</button>
+
+      <button type="button"(click)="openPaymentRefund()" [disabled]='!selected' class="btn btn-primary">
+        <i></i> Refund</button>
+      <button type="button" (click)="openDepositJournalDetails()" class="btn btn-primary">
+        <i></i> Journal</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal">
+        <i></i> Close</button>
+    </div>
+  </form>
+</div>
+</ng-template>
+
+
+<ng-template [ngIf]= "refundPage">
+        <form class="form-horizontal" #baseForm="ngForm">
+                <div class="row ">
+                    <div class="col-10">
+                  <div class="form-group col-md-5 ">
+                    <label>Customer Id:</label>
+                    <input  name="customerId" [(ngModel)]="depositPaymentsModel.customerId.value" class="form-control" type="text" readonly>
+                  </div>
+
+                  <div class="form-group col-md-5 ">
+                      <label> Currency</label>
+                      <input  name="currency" [(ngModel)]="depositPaymentsModel.currency.value" class="form-control" type="text" readonly>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-10">
+                      <div class="form-group col-md-5 ">
+                          <label>Deposit Balance</label>
+                          <input  name="depositBalance" [(ngModel)]="depositPaymentsModel.depositBalance.value" class="form-control" type="text" readonly>
+                        </div>
+      
+                        <div class="form-group col-md-5 ">
+                            <label> Available For Refund</label>
+                            <input  name="AvailRefundBal" [(ngModel)]="depositPaymentsModel.depositBalance.value" class="form-control" type="text"readonly>
+                          </div>
+                  </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-10">
+                          <div class="form-group col-md-5 ">
+                              <label>Amount to Refund</label>
+                              <input  name="payAmount" [(ngModel)]="depositPaymentsModel.payAmount.value" class="form-control" type="text">
+                            </div>
+                      </div>
+                      </div>
+                    </form>
+
+                  <div class="col-md-12 text-right my-3">
+                      <button type="button" data-dismiss="modal" (click)="onPaymentRefundSave()" class="btn btn-primary">
+                          <i></i>OK</button>
+                    </div>
+                 
+  
+</ng-template>

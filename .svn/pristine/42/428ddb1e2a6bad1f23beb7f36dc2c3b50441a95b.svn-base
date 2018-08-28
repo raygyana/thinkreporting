@@ -1,0 +1,284 @@
+<div class="modal-body">
+  <div class="clearfix"></div>
+  <div class="content-box-inner">
+
+
+
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="LastName">Order Class</label>
+      </div>
+
+      <div class="form-group col-md-3">
+        <input type="text " class="form-control " placeholder=" " name="orderClass" [(ngModel)]="paymentThresholdHandlingModel.orderClass.value">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="LastName">Customer Nbr</label>
+      </div>
+
+      <div class="form-group col-md-3">
+        <input type="text " class="form-control " placeholder=" " name="customerNbr" [(ngModel)]="paymentThresholdHandlingModel.customerNbr.value">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="LastName">Term</label>
+      </div>
+
+      <div class="form-group col-md-3">
+        <input type="text " class="form-control " placeholder=" " name="term" [(ngModel)]="paymentThresholdHandlingModel.term.value">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="LastName">Order Nbr</label>
+      </div>
+
+      <div class="form-group col-md-3">
+        <input type="text " class="form-control " placeholder=" " name="orderNbr" [(ngModel)]="paymentThresholdHandlingModel.orderNbr.value">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="LastName">Start Date</label>
+      </div>
+
+      <div class="form-group col-md-3">
+        <input type="text " class="form-control " placeholder=" " name="startDate" [(ngModel)]="paymentThresholdHandlingModel.startDate.value">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="LastName">Line Item</label>
+      </div>
+
+      <div class="form-group col-md-3">
+        <input type="text " class="form-control " placeholder=" " name="lineItem" [(ngModel)]="paymentThresholdHandlingModel.lineItem.value">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="LastName">Source Code</label>
+      </div>
+
+      <div class="form-group col-md-3">
+        <input type="text " class="form-control " placeholder=" " name="sourceCode" [(ngModel)]="paymentThresholdHandlingModel.sourceCode.value">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="LastName">Order Date</label>
+      </div>
+
+      <div class="form-group col-md-3">
+        <input type="text " class="form-control " placeholder=" " name="orderDate" [(ngModel)]="paymentThresholdHandlingModel.orderDate.value">
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="LastName">Order Amount</label>
+      </div>
+
+      <div class="form-group col-md-2">
+        <input type="text " class="form-control " placeholder=" " name="orderAmount" [(ngModel)]="paymentThresholdHandlingModel.orderAmount.value">
+
+      </div>
+      <div class="form-group col-md-1">
+        <input type="text " class="form-control " placeholder=" " name="orderAmtCurrency" [(ngModel)]="paymentThresholdHandlingModel.orderAmtCurrency.value">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="LastName">Total Paid</label>
+      </div>
+
+      <div class="form-group col-md-2">
+        <input type="text " class="form-control " placeholder=" " name="totalAmount" [(ngModel)]="paymentThresholdHandlingModel.totalAmount.value">
+
+      </div>
+      <div class="form-group col-md-1">
+        <input type="text " class="form-control " placeholder=" " name="totalAmtCurrency" [(ngModel)]="paymentThresholdHandlingModel.totalAmtCurrency.value">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <div class="border mt-2  p-2 pt-4  mt-sm-4 ">
+          <fieldset>
+            <legend class=" text-uppercase">Under Payment Option</legend>
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio">Prorate Issues</label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio">Partial Payment</label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio">Reject Payment</label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio">Full payment -Underpaid</label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <div class="border mt-2  p-2 pt-4  mt-sm-4 ">
+          <fieldset>
+            <legend class=" text-uppercase">Over Payment Option</legend>
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio">Prorate Issues</label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio">Refund Overage</label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio">Reject Payment</label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio">Full payment -Overpaid</label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <div class="border mt-2  p-2 pt-4  mt-sm-4 ">
+
+      <div class="row">
+        <div class="form-group col-md-4" align="right">
+          <div class="row">
+            <div class="form-group col-md-12">
+              <br/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              <br/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              Expiration Date
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              Number of Days
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-12">
+              <br/> Order Amounts(GBP)
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              Subscription
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              Delivery
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              Tax
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-4">
+          <div class="border mt-2  p-2 pt-4  mt-sm-4 ">
+            <fieldset>
+              <legend class=" text-uppercase">Original</legend>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <input type="text " class="form-control " placeholder=" " name="expirationDateOriginal" [(ngModel)]="paymentThresholdHandlingModel.expirationDateOriginal.value">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <input type="text " class="form-control " placeholder=" " name="numberofDaysOriginal" [(ngModel)]="paymentThresholdHandlingModel.numberofDaysOriginal.value">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <br/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <input type="text " class="form-control " placeholder=" " name="subscriptionOriginal" [(ngModel)]="paymentThresholdHandlingModel.subscriptionOriginal.value">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <input type="text " class="form-control " placeholder=" " name="deliveryOriginal" [(ngModel)]="paymentThresholdHandlingModel.deliveryOriginal.value">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <input type="text " class="form-control " placeholder=" " name="taxOriginal" [(ngModel)]="paymentThresholdHandlingModel.taxOriginal.value">
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="border mt-2  p-2 pt-4  mt-sm-4 ">
+            <fieldset>
+              <legend class=" text-uppercase">Prorated</legend>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <input type="text " class="form-control " placeholder=" " name="expirationDateProrated" [(ngModel)]="paymentThresholdHandlingModel.expirationDateProrated.value">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <input type="text " class="form-control " placeholder=" " name="numberofDaysProrated" [(ngModel)]="paymentThresholdHandlingModel.numberofDaysProrated.value">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <br/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <input type="text " class="form-control " placeholder=" " name="subscriptionProrated" [(ngModel)]="paymentThresholdHandlingModel.subscriptionProrated.value">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <input type="text " class="form-control " placeholder=" " name="deliveryProrated" [(ngModel)]="paymentThresholdHandlingModel.deliveryProrated.value">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <input type="text " class="form-control " placeholder=" " name="taxProrated" [(ngModel)]="paymentThresholdHandlingModel.taxProrated.value">
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <br/>
+    <div class="row ">
+      <div class="col-md-12 text-right my-3">
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="applyPaymentThresold()">
+          OK</button>
+
+      </div>
+    </div>
+  </div>
+</div>

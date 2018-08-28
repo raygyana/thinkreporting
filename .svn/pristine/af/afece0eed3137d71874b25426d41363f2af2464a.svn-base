@@ -1,0 +1,358 @@
+<section class="container-fluid my-3 custRow">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="whiteBg tabContent active_link topArrow usrtoparrowPos3">
+        <div class="col-md-4">
+          <h4 id="addCustomerHeading">Add Agency</h4>
+        </div>
+        <hr>
+        <form class="form-horizontal" #baseForm="ngForm">
+          <div class="row">
+            <div class="col-md-6 nopadding">
+              <div class=" col-md-12 ">
+                <div class="border mt-2  p-2 pt-4">
+                  <fieldset>
+                    <legend class=" text-uppercase">Agency Detail</legend>
+                    <div class="form-row">
+                      <div class="form-group col-md-2">
+                        <label for="user">Salutation</label>
+                        <input id="salutation" name="salutation" [(ngModel)]="addAgencyModel.salutation.value" type="text" class="form-control" maxlength="15">
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="user">First Name</label>
+                        <input id="fName" name="fName" [(ngModel)]="addAgencyModel.fName.value" type="text" class="form-control" maxlength="40">
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="user">Initial</label>
+                        <input id="initial" name="initial" [(ngModel)]="addAgencyModel.initial.value" type="text" class="form-control" maxlength="40">
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="user">Last Name</label>
+                        <input id="lName" name="lName" [(ngModel)]="addAgencyModel.lName.value" type="text" class="form-control" maxlength="40">
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="user">Suffix</label>
+                        <input id="suffix" name="suffix" [(ngModel)]="addAgencyModel.suffix.value" type="text" class="form-control" maxlength="5">
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="border mt-2  p-2 pt-4">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="user">Title</label>
+                      <input id="title" name="title" [(ngModel)]="addAgencyModel.title.value" type="text" class="form-control" maxlength="150">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="user"> Company</label>
+                      <input id="company" name="company" [(ngModel)]="addAgencyModel.company.value" type="text" class="form-control" maxlength="80">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="user">Department</label>
+                      <input id="department" name="department" [(ngModel)]="addAgencyModel.department.value" type="text" class="form-control" maxlength="80">
+                    </div>
+
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="user"> Address 1</label>
+                      <input id="address1" name="address1" [(ngModel)]="addAgencyModel.address1.value" type="text" class="form-control" maxlength="80">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="user"> Address 2</label>
+                      <input id="address2" name="address2" [(ngModel)]="addAgencyModel.address2.value" type="text" class="form-control" maxlength="80">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="user"> Address 3</label>
+                      <input id="address3" name="address3" [(ngModel)]="addAgencyModel.address3.value" type="text" class="form-control" maxlength="80">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="user">City
+                        <font color="red"> * </font>
+                      </label>
+                      <input id="city" name="city" [(ngModel)]="addAgencyModel.city.value" type="text" class="form-control" validator-ui vRequired="City is Required"
+                        maxlength="50">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="user">State
+                        <font color="red"> * </font>
+                      </label>
+                      <app-select name="state" (change)="fillCountry($event)" [(ngModel)]="addAgencyModel.state.value" [Data]="CountryList" validator-ui
+                        vRequired="State is Required">
+                      </app-select>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="user">Zip/Postal</label>
+                      <input id="zip" name="zip" [(ngModel)]="addAgencyModel.zip.value" type="text" class="form-control" maxlength="15">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="user">Country</label>
+                      <input id="country" name="country" type="text" class="form-control" [(ngModel)]="addAgencyModel.country.value" readonly="readonly"
+                        value="">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="user">County</label>
+                      <input id="county" name="county" [(ngModel)]="addAgencyModel.county.value" type="text" class="form-control" maxlength="25">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="user"> Phone 1</label>
+                      <!-- <input id="phone1" name="phone1" data-bvalidator="number" [(ngModel)]="addAgencyModel.phone1.value" type="text" class="form-control"
+                        maxlength="50"> -->
+                      <input [(ngModel)]="addAgencyModel.phone1.value" name="phone1" type="text" class="form-control" [textMask]="{mask: mask}"
+                        pattern="\+\d \(\d{3}\) \d{3}-\d{5}" />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="user"> Phone 2 </label>
+                      <!-- <input id="phone2" name="phone2" [(ngModel)]="addAgencyModel.phone2.value" data-bvalidator="number" type="text" class="form-control"
+                        maxlength="50"> -->
+                      <input [(ngModel)]="addAgencyModel.phone2.value" name="phone2" type="text" class="form-control" [textMask]="{mask: mask}"
+                        pattern="\+\d \(\d{3}\) \d{3}-\d{5}" />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="user">Fax</label>
+                      <input id="fax" name="fax" data-bvalidator="number" [(ngModel)]="addAgencyModel.fax.value" type="text" class="form-control"
+                        maxlength="50">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="user">E-mail</label>
+                      <input id="email" name="email" [(ngModel)]="addAgencyModel.email.value" type="text" class="form-control" validator-ui vEmail="Invalid Email">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="user">Address Type</label>
+                      <app-select name="addressType" [(ngModel)]="addAgencyModel.addressType.value" [Data]="AddressType">
+                      </app-select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 nopadding" style="z-index:1">
+              <div class="col-md-12">
+                <div class="border mt-2  p-2 pt-4">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="user">Tax ID</label>
+                      <input id="taxID" name="taxID" [disabled]="taxIDFiels" [(ngModel)]="addAgencyModel.taxID.value" type="text" class="form-control"
+                        maxlength="15">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="user">Special Tax ID </label>
+                      <app-select name="specialTaxId" [Data]="SpecialTaxID" [(ngModel)]="addAgencyModel.specialTaxId.value" outputKey="complete"
+                        (remove)="removeTextBoxValue()" (change)="SpecialTaxIDEvent($event)">
+                      </app-select>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="user">List Rental
+                        <font color="red"> * </font>
+                      </label>
+                      <app-select [(ngModel)]="addAgencyModel.listRental.value" name="listRental" [Data]="listRentalList" validator-ui vRequired="List Rental is Required">
+                      </app-select>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="user">Customer Category</label>
+                      <app-select name="customerCategory" [(ngModel)]="addAgencyModel.customerCategory.value" [Data]="CustomerCategory">
+                      </app-select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="user">Sales</label>
+                      <app-select name="sales" [(ngModel)]="addAgencyModel.sales.value" [Data]="Sales">
+                      </app-select>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="user"> Address Status
+                        <font color="red"> * </font>
+                      </label>
+                      <app-select name="addressStatus" [(ngModel)]="addAgencyModel.addressStatus.value" [Data]="AddressStatus" validator-ui vRequired="Address Status is Required">
+                      </app-select>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="user">Credit Status
+                        <font color="red"> * </font>
+                      </label>
+                      <app-select name="creditStatus" [(ngModel)]="addAgencyModel.creditStatus.value" [Data]="CreditStatus" validator-ui vRequired="Credit Status is Required">
+                      </app-select>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="user">Institutional Identifier</label>
+                      <input id="institutionalIdentifier" [(ngModel)]="addAgencyModel.institutionalIdentifier.value" name="institutionalIdentifier"
+                        type="text" class="form-control" maxlength="80">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="user">Parent Inst. Identifier</label>
+                      <input id="parentInstitutionalIdentifier" [(ngModel)]="addAgencyModel.parentInstitutionalIdentifier.value" name="parentInstitutionalIdentifier"
+                        type="text" class="form-control" maxlength="15">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <div class="form-check">
+                        <div id="exampleAccordion" data-children=".item">
+                          <div class="item">
+                            <div class="accordianBorderBlock">
+                              <label class="custom-control custom-checkbox active d-inline">
+                                <input id="isAgency1" name="isAgency" onclick="return false;" checked="checked" class="custom-control-input" type="checkbox">
+                                <span class="custom-control-label"></span>
+                              </label>
+                              <label for="exampleFormControlTextarea1">
+                                <a id="isagency" data-parent="#exampleAccordion" onclick="return false;" href="#Is-Agency" aria-expanded="true" aria-controls="Is-Agency">
+                                  Is Agency
+                                  <i class="fa fa-chevron-down groupIcon" aria-hidden="true"></i>
+                                </a>
+                              </label>
+                            </div>
+                            <div id="Is-Agency" class="collapse AccContent show" role="tabpanel">
+                              <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <label for="user">Agency Codes
+                                    <font color="red"> * </font>
+                                  </label>
+                                  <input id="agencyCode" name="agencyCode" [(ngModel)]="addAgencyModel.agencyCode.value" type="text" class="form-control" validator-ui
+                                    vRequired="Agency Code is Required" maxlength="15">
+                                </div>
+                              </div>
+                              <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <label for="user">Agency Name</label>
+                                  <input id="agencyName" name="agencyName" [(ngModel)]="addAgencyModel.agencyName.value" type="text" class="form-control" maxlength="80">
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <label for="user">Payment Thershold</label>
+                                  <app-select name="paymentThershold" [(ngModel)]="addAgencyModel.paymentThershold.value" [Data]="paymentThersholdList">
+                                  </app-select>
+                                </div>
+                              </div>
+                              <div class="form-row">
+                                <div class="col-md-12">
+                                  <app-check-box [label]="'Bundle Discounts'" name="bundleDiscount" [(ngModel)]="addAgencyModel.bundleDiscount.value"></app-check-box>
+                                </div>
+                              </div>
+                              <div class="form-row">
+                                <div class="col-md-12">
+                                  <app-check-box [label]="'Agency Is Renew To'" name="isRenewTo" [(ngModel)]="addAgencyModel.isRenewTo.value"></app-check-box>
+                                </div>
+                              </div>
+                              <div class="form-row">
+                                <div class="col-md-6">
+                                  <app-check-box [label]="'Agency Is Bill To'" name="isBillTo" [(ngModel)]="addAgencyModel.isBillTo.value"></app-check-box>
+                                </div>
+                                <div class="col-md-6">
+                                  <label for="user"> Change tax based on </label>
+                                </div>
+                              </div>
+                              <div class="form-row">
+                                <div class="col-md-6 form-group">
+                                  <app-check-box [label]="'Agency pay Tax'" (valueChange)="changeTaxPayedOnGrossValue($event)" name="agencyPayTax" [(ngModel)]="addAgencyModel.agencyPayTax.value"></app-check-box>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-row">
+                                    <div class="col-md-3">
+                                      <label class="custom-control custom-radio">
+                                        <input name="taxPayedOnGross" class="custom-control-input" type="radio" value="0" checked="checked" [(ngModel)]="taxPayedOnGross"
+                                          [disabled]="addAgencyModel.agencyPayTax.value === 1">
+                                        <span class="custom-control-label">Net</span>
+                                      </label>
+                                    </div>
+                                    <div class="col-md-3 pl-5">
+                                      <label class="custom-control custom-radio">
+                                        <input id="taxPayedOnGross2" [(ngModel)]="taxPayedOnGross" name="taxPayedOnGross" class="custom-control-input" type="radio"
+                                          value="1" [disabled]="addAgencyModel.agencyPayTax.value === 1">
+                                        <span class="custom-control-label">Gross</span>
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <label for="user">New Order Commission</label>
+                                  <input id="newOrderCommission" [(ngModel)]="addAgencyModel.newOrderCommission.value" name="newOrderCommission" type="text"
+                                    class="form-control" value="" maxlength="7">
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <label for="user"> Renewal Commission</label>
+                                  <input id="renewalCommission" name="renewalCommission" [(ngModel)]="addAgencyModel.renewalCommission.value" type="text" class="form-control"
+                                    value="" maxlength="7">
+                                </div>
+                              </div>
+                              <div class="form-row">
+                                <div class="col-md-6 form-group">
+                                  <label class="custom-control custom-radio">
+                                    <input id="remits" name="remits" class="custom-control-input" type="radio" value="0" [(ngModel)]="addAgencyModel.remits.value">
+
+                                    <span class="custom-control-label">Pay Commission To Agency</span>
+                                  </label>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                  <label class="custom-control custom-radio">
+                                    <input id="remits" name="remits" class="custom-control-input" type="radio" value="1" [(ngModel)]="addAgencyModel.remits.value">
+
+                                    <span class="custom-control-label">Agency Remits Net Payment</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-right my-3">
+              <button type="submit" id="saveEdit" (click)="addNewAgency()" class="btn btn-primary ">
+                <i class="fa fa-floppy-o"></i> Save </button>
+            </div>
+          </div>
+          <div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-custom-modal-pop-up [AlertType]="AlertType " [basicSetting]="duplicateAgencybasicSetting" [template]="DupliacteAgencyModel"></app-custom-modal-pop-up>
+
+<ng-template #DupliacteAgencyModel>
+  <div class="row">
+    <div class="col">
+      <div class="agGridSize">
+        <app-ag-grid [extraOption]="agencyExtraOption" [myGridOptions]="agencygridOptions" (myGridReady)="doOnGridReadyDupliacteRecod($event)"></app-ag-grid>
+      </div>
+      <div class="col-md-12 text-right my-3">
+        <button type="submit" id="saveEdit" (click)="continueSave()" class="btn btn-primary ">
+          <i class="fa fa-floppy-o"></i> Save Continue </button>
+      </div>
+    </div>
+  </div>
+</ng-template>

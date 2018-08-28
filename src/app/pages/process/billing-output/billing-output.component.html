@@ -1,0 +1,21 @@
+<section class="container-fluid my-3 custRow ">
+  <div class="row ">
+    <div class="col-md-12">
+      <div class="whiteBg tabContent">
+        <div class="row">
+          <div class="col-12">
+            <h4>Billing</h4>
+            <hr>
+          </div>
+        </div>
+        <div class="agGridSize">
+          <app-ag-grid [name]="'OutputReports'" [myGridOptions]="gridOptionsReports" (myGridReady)="doOnGridReadyOutputReports($event)"></app-ag-grid>
+        </div>
+      </div>
+      <div class="col-12 text-right my-3">
+        <a [routerLink]="['/pages/billing_add']" class="btn btn-primary">
+          <i class="fa fa-plus" aria-hidden="true"></i> Add New..</a>
+      </div>
+    </div>
+  </div>
+</section>

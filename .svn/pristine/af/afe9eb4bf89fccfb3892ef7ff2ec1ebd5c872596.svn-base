@@ -1,0 +1,99 @@
+<section class="container-fluid my-3 custRow ">
+  <div class="whiteBg tabContent">
+    <div class="col-12">
+      <h4>ICS Payment Batch Listener</h4>
+      <hr>
+      <div class="border m-1 p-2 pt-4 mt-4">
+        <fieldset>
+          <legend class="text-uppercase">Description</legend>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="user">Main Purpose</label>
+                <input type="text" class="form-control" placeholder="ICS Payment Batch Listener">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="user">ID</label>
+                <input type="text" class="form-control" placeholder="107">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="user">Description</label>
+                <input type="text" class="form-control" placeholder=" ">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group ">
+                <label for="user">Default Priority</label>
+                <input type="text" class="form-control" placeholder=" ">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="user">Default Queue</label>
+                <select class="form-control custom-select">
+                  <option></option>
+                  <option>auto</option>
+                  <option>0</option>
+                  <option>0</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-check form-check-inline">
+                <label class="custom-control custom-checkbox ">
+                  <input type="checkbox" class="custom-control-input">
+                    
+                  <span class="  custom-control-label">Active</span>
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" data-toggle="modal" data-target="#repeating">
+                    
+                  <span class="  custom-control-label">Repeating</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="row pt-3">
+      <div class="col-6">
+        <div class="border m-1 p-2 pt-4">
+          <fieldset>
+            <legend class="text-uppercase">Selected payment Setting</legend>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="user">Bank Def.</label>
+                  <select class="form-control custom-select">
+                    <option>Automation Paymentech Bank.2</option>
+                    <option>BPOINT Bank Definition.4</option>
+                    <option>CyberSource 5.0.1</option>
+                    <option>PaymenTeach North (N Dakota,AX,USD).9</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-right my-3">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+          <i class="fa fa-floppy-o"></i> Save
+        </button>
+        <button type="button" class="btn btn-light" data-dismiss="modal">
+          <i class="fa fa-times" aria-hidden="true"></i> Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

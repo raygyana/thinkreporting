@@ -1,0 +1,389 @@
+<div class="whiteBg tabContent">
+  <form class="form-horizontal" #baseForm="ngForm">
+    <div class="row">
+      <div class="col-md-12">
+        <h4> {{Heading}}</h4>
+      </div>
+    </div>
+    <hr class="borderBtm">
+
+    <div class="row">
+      <div class=" col-sm-4 col-md-4">
+        <div class="border m-1 p-2 pt-4">
+          <div class="row ">
+            <div class="form-group col-md-6 ">
+              <label> Current Customer</label>
+              <input id="customerId" name="customerId" class="form-control" type="text" [(ngModel)]="makePaymentsModel.customerId.value"
+                readonly>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="form-control-label">&nbsp;</label>
+              <input name="fullName" class="form-control" readonly="readonly" type="text" value=" ">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label class="form-control-label">Payer Customer</label>
+              <app-select [Data]="payerCustomerData" [(ngModel)]="makePaymentsSetDataModel.payerCustomer.value" name="payerCustomer">
+              </app-select>
+            </div>
+            <!-- <div class="form-group col-md-6">
+              <label  class="form-control-label">&nbsp;</label>
+              <input name="fullName" class="form-control" type="text" value=" ">
+            </div> -->
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label class="form-control-label">Payer Address</label>
+              <div class="input-group">
+                <input name="address1" class="form-control" readonly="readonly" type="text">
+                <div class="input-group-btn">
+                  <!-- <button type="button" class="btn btn-primary">
+                    ...
+                  </button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Name On Card</label>
+              <input type="text" name="CardName" class="form-control" placeholder="">
+            </div>
+            <div class="form-group col-md-6">
+               <label class="form-control-label">Date</label>
+              <!-- <input name="creationDate" class="form-control" type="date" placeholder="MM/DD/YYYY"> -->
+              <my-date-picker name="fromdate" [options]="myDatePickerOptions" ></my-date-picker>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label class="form-control-label">Currency
+                <font color="red"> * </font>
+              </label>
+              <!-- <app-select (change)="getExchangeRate($event)" [(ngModel)]="makePaymentsSetDataModel.currency.value" [basicSetting]="ddOptionsCurrency"
+                name="operator">
+              </app-select> -->
+              <select class="form-control custom-select" name="currencyDataDescription" [(ngModel)]="makePaymentsModel.currency.value"
+                (change)="OnDropDownChange($event)">
+
+                <option *ngFor="let itm of currencyData" value={{itm.currency}}>{{itm.currency}}:{{itm.description}}</option>
+
+              </select>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" col-sm-4 col-md-4">
+        <div class="border m-1 p-2 pt-4">
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <label class="form-control-label">Base Amt</label>
+              <input name="baseAmount" placeholder="0.00" class="form-control" type="text" [(ngModel)]="this.makePaymentsSetDataModel.baseAmount.value"
+                readonly>
+            </div>
+            <div class="form-group col-md-4">
+              <label class="form-control-label">Payment Amt</label>
+              <input name="payAmount" (focusout)="changePayAmtValue()" validator-ui vNumber="Payment Amount is required and must not be 0"
+                class="form-control" type="text" [(ngModel)]="makePaymentsSetDataModel.payAmount.value">
+            </div>
+
+            <div class="form-group col-md-3">
+              <label class="form-control-label">Exch.Rt</label>
+              <input name="exchangeRate" class="form-control" type="text" [(ngModel)]="makePaymentsSetDataModel.exchangeRate.value" readonly>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <label class="form-control-label">Payment Account</label>
+              <input type="text" class="form-control" placeholder="">
+            </div>
+            <div class="form-group col-md-7">
+              <label class="form-control-label">&nbsp;</label>
+              <input type="text" class="form-control" placeholder="">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Credit Card #</label>
+              <input type="text" name="creditCardInfo" class="form-control" [(ngModel)]="makePaymentsSetDataModel.creditCardInfo.value">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Check Cheque #</label>
+              <input type="text" name="checkNumber" class="form-control" [(ngModel)]="makePaymentsSetDataModel.checkNumber.value" placeholder="">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Payment Type
+                <font color="red"> * </font>
+              </label>
+              <app-select validator-ui vRequired="Payment Type is required" [Data]="paymentTypeData" [(ngModel)]="makePaymentsSetDataModel.paymentType.value"
+                name="paymentType">
+              </app-select>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Expire Date</label>
+              <!-- <input type="text" name="expDate" class="form-control"  type="date"> -->
+              <my-date-picker name="fromdate" [(ngModel)]="makePaymentsSetDataModel.expDate.value" [options]="myDatePickerOptions" ></my-date-picker>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <label class="form-control-label">verification Value</label>
+              <input name="cardVerificationValue" class="form-control" type="text">
+              <small>(On back of card)</small>
+            </div>
+            <div class="form-group col-md-5">
+              <label class="form-control-label">Start Date</label>
+              <!-- <input name="creditCardStartDate" class="form-control" [(ngModel)]="makePaymentsSetDataModel.creditCardStartDate.value" type="date"
+                placeholder="MM/DD/YYYY"> -->
+                <my-date-picker name="fromdate" [(ngModel)]="makePaymentsSetDataModel.creditCardStartDate.value" [options]="myDatePickerOptions" ></my-date-picker>
+              <small>(Maestro/Solo)</small>
+            </div>
+            <div class="form-group col-md-2">
+              <label class="form-control-label">Issue</label>
+              <input name="creditCardIssueId" class="form-control" type="text" [(ngModel)]="makePaymentsSetDataModel.creditCardIssueId.value">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class=" col-sm-4 col-md-4">
+        <div class="border m-1 p-2 pt-4">
+          <fieldset>
+            <legend class=" text-uppercase">TRANSACTION INFORMATION</legend>
+            <div class="form-row">
+              <label for="inputPassword" class="col-md-5 form-group col-form-label text-right">Transaction Status<font color="red">*</font>
+              </label>
+              <div class="col-md-7">
+                <app-select [Data]="trasactionData" [(ngModel)]="makePaymentsSetDataModel.paymentClearStatus.value" name="paymentClearStatus">
+                </app-select>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right"> Auth Date</label>
+              <div class="col-md-7">
+                <!-- <input name="authDate" type="date" class="form-control" placeholder="MM/DD/YYYY" [(ngModel)]="makePaymentsSetDataModel.authDate.value"> -->
+
+                <my-date-picker name="fromdate" [(ngModel)]="makePaymentsSetDataModel.authDate.value" [options]="myDatePickerOptions" ></my-date-picker>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right"> Auth Code</label>
+              <div class="col-md-7">
+                <input name="authCode" class="form-control" type="text" [(ngModel)]="makePaymentsSetDataModel.authCode.value">
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right"> Reference #</label>
+              <div class="col-md-7">
+                <input name="refNbr" [(ngModel)]="makePaymentsSetDataModel.refNbr.value" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right"> Date Cleared</label>
+              <div class="col-md-7">
+                <!-- <input name="clearDate" type="date" [(ngModel)]="makePaymentsSetDataModel.clearDate.value" class="form-control" placeholder="MM/DD/YYYY">
+               -->
+               <my-date-picker name="fromdate" [(ngModel)]="makePaymentsSetDataModel.clearDate.value" [options]="myDatePickerOptions" ></my-date-picker>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right"> Settle Retries Left</label>
+              <div class="col-md-7">
+                <input name="nSettleRetriesLeft" [(ngModel)]="makePaymentsSetDataModel.nSettleRetriesLeft.value" class="form-control" type="text"
+                  value="" readonly>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right">Next retry</label>
+              <div class="col-md-7">
+                <!-- <input name="nextSettleRetryDate" [(ngModel)]="makePaymentsSetDataModel.nextSettleRetryDate.value" type="date" class="form-control"
+                  type="text" value="" readonly> -->
+                  <my-date-picker name="fromdate" [(ngModel)]="makePaymentsSetDataModel.nextSettleRetryDate.value" [options]="myDatePickerOptions" ></my-date-picker>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right">Invoice Effort#</label>
+              <div class="col-md-7">
+                <input name="effortNbr" class="form-control" type="text" value="">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-md-6">
+        <div class="border m-1 p-2 pt-4 pb-4">
+          <fieldset>
+            <legend class=" text-uppercase">Overpayment Handling</legend>
+            <div class="form-row">
+              <div class="col-md-8">
+                <div class="form-radio">
+                  <label class="custom-control custom-radio">
+                    <input name="radio" type="radio" [(ngModel)]="makePaymentsSetDataModel.overPaymentAccount.value" value="1" (change)="changePayAmtValue()">
+                    <span class="custom-control-description">Place In Customer Deposit Accounts</span>
+                  </label>
+                </div>
+                <div class="form-radio">
+                  <label class="custom-control custom-radio">
+                    <input name="radio" type="radio" [(ngModel)]="makePaymentsSetDataModel.overPaymentAccount.value" value="0" (change)="changePayAmtValue()">
+                    <span class="custom-control-description">Use Payment Threshold Settings</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="form-control-label">Amount</label>
+                  <input type="number" min="0" name="overPay" class="form-control" placeholder="0.00" [(ngModel)]="makePaymentsSetDataModel.OverPayamount.value"
+                    (keydown)="validNumber($event)" readonly>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="border m-1 p-2 pt-4">
+          <fieldset>
+            <legend class=" text-uppercase">Order Filter</legend>
+            <div class=" form-row">
+              <div class="col-md-5">
+                <div class="form-row">
+                  <label for="inputPassword" class="col-md-3 col-form-label form-group text-right">Show</label>
+                  <div class="col-md-8">
+                    <app-select name="test" [Data]="OrderShowData" [(ngModel)]="makePaymentsSetDataModel.balancedue.value">
+                    </app-select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-row pl-3">
+                  <label for="inputPassword" class=" col-form-label"> Order Where The</label>
+                </div>
+              </div>
+              <div class="col-md-3">
+
+                <div class="form-row">
+                  <div class="col-md-11">
+                    <app-select name="test" [Data]="orderWhereData" [(ngModel)]="makePaymentsSetDataModel.payer.value">
+                    </app-select>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-5">
+                <div class="form-row">
+                  <label for="inputPassword" class="col-md-3  col-form-label text-right">Is The</label>
+                  <div class="col-md-8">
+                    <app-select [Data]="orderFilterForRecipientData" name="test" [(ngModel)]="makePaymentsSetDataModel.recipient.value">
+                    </app-select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group row">
+                  <button (click)="ApplyFilterOnOrderData()" type="button" class="btn btn-primary">
+                    <i class="fa fa-filter" aria-hidden="true"></i> Apply Filter</button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-md-12">
+        <div class="border m-1 p-2 pt-4">
+          <fieldset>
+            <legend class="text-uppercase">Order</legend>
+            <div class="dataTables_wrapper no-footer">
+              <div *ngIf="show">
+                <div class="agGridSize">
+                  <app-ag-grid [context]="context" [frameworkComponents]="frameworkComponents" [name]="'paymentsReports'" [myGridOptions]="gridOptionsReports"
+                    (myGridReady)="doOnGridReadyPaymentsFilterReports($event)"></app-ag-grid>
+                </div>
+              </div>
+              <div *ngIf="initialLoad">
+                <div class="agGridSize">
+                  <app-ag-grid [context]="context" [frameworkComponents]="frameworkComponents" [name]="'paymentsReports'" [myGridOptions]="gridOptionsReports"
+                    (myGridReady)="doOnGridReadyPaymentsReports($event)"></app-ag-grid>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content pt-3 border m-1 p-2 pt-4">
+      <div class="col-md-4">
+        <div class="form-row">
+          <label for="inputPassword" class=" col-form-label">Order Currency</label>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6">
+            <div class="form-row">
+              <label for="inputPassword" class=" col-form-label">Due (GBP)</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="order_currency" placeholder="0.00" name="order_currency" [(ngModel)]="makePaymentsSetDataModel.orderCurrency.value"
+                  readonly>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-row form-group ">
+              <button type="button" class="btn btn-primary btn-sm">Set Amount</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-row">
+          <label for="inputPassword" class="col-form-label">Payment Currency</label>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6">
+            <div class="form-row">
+              <label for="inputPassword" class=" col-form-label">Due ({{makePaymentsModel.currency.value}})</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="pay_currency" name="pay_currency" placeholder="0.00" [(ngModel)]="makePaymentsSetDataModel.paymentCurrency.value"
+                  readonly>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-row">
+              <button type="button" (click)="setAmountOnPaymentCurr()" class="btn btn-primary">Set Amount</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row pt-4 pb-3 float-right">
+      <div class="col-12 ">
+        <button type="button" class="btn btn-primary">
+          <i class="fa fa-eye" aria-hidden="true"></i> Lookup Order</button>&nbsp;
+
+        <button type="button" (click)="OnMakePaymentancel()" class="btn btn-light">
+          <i class="fa fa-times" aria-hidden="true"></i> Cancel</button>&nbsp;
+
+        <button (click)="OnMakePaymentSave()" [disabled]='disabled' type="submit" class="btn btn-primary">
+          <i class="fa fa-floppy-o"></i> Save </button>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+
+<app-custom-modal-pop-up [basicSetting]="addnewpopupPaymentthresoldSetting" [template]="paymenthresold"></app-custom-modal-pop-up>
+
+<ng-template #paymenthresold>
+  <app-payment-threshold-handling></app-payment-threshold-handling>
+
+</ng-template>

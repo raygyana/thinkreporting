@@ -1,0 +1,254 @@
+<div class="modal-body">
+  <div class="clearfix"></div>
+  <div class="content-box-inner">
+    <div class="row pb-3">
+      <div class="col-md-10 ">
+        <div class="d-flex flex-row align-items-center ">
+          <div class="p-2">Order Code Search by :</div>
+          <div class="col-md-4">
+            <select class="form-control custom-select" id="selectMe" (click)="changesearchcriteria($event)" [(ngModel)]="orderCodeSearchby">
+              <option value="option1">Order Code</option>
+              <option value="option2">Subscr.Attributes</option>
+              <option value="option3">Product Attributes</option>
+              <option value="option4">Address Lookup</option>
+
+            </select>
+
+            <!-- <app-dropdown-with-description name="test" (change)="changesearchcriteria($event)" [(ngModel)]="orderCodeSearchby" [Data]="orderCodeSearchbyDorpdownData">
+            </app-dropdown-with-description> -->
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="option1" class="group " [hidden]="!flage1">
+      <div class="border mt-2  p-2 pt-4">
+        <fieldset>
+          <legend class=" text-uppercase">Search Criteria</legend>
+          <div class="row ">
+
+            <div class="form-group col-md-4 ">
+              <label for="LastName ">Order Code</label>
+              <input type="text " class="form-control " placeholder=" " name="orderCode" [(ngModel)]="orderCodeLookupModel.orderCode.value">
+            </div>
+
+            <div class="form-group col-md-4 ">
+              <label for="LastName ">Order Class</label>
+              <app-dropdown-with-description name="test" [(ngModel)]="orderCodeLookupModel.orderClass.value" [Data]="orderClassdata">
+              </app-dropdown-with-description>
+
+
+
+            </div>
+
+            <div class="form-group col-md-4 ">
+
+              <label for="LastName ">Order Code Type</label>
+
+              <app-dropdown-with-description name="test" [(ngModel)]="orderCodeLookupModel.orderCodeType.value" [Data]="orderCodetypeData">
+              </app-dropdown-with-description>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <div class="note pb-3">
+
+      </div>
+    </div>
+    <div id="option2" class="group" [hidden]="!flage2">
+
+      <div class="border mt-2  p-2 pt-4">
+        <fieldset>
+          <legend class=" text-uppercase">Search Criteria</legend>
+          <div class="row ">
+
+
+
+            <div class="form-group col-md-6 ">
+              <label for="LastName ">Order Class</label>
+              <app-dropdown-with-description name="test" [(ngModel)]="orderCodeLookupModel.orderClass.value" [Data]="orderClassdata">
+              </app-dropdown-with-description>
+            </div>
+
+            <div class="form-group col-md-6">
+
+              <label for="LastName">Media</label>
+              <input type="text " class="form-control " placeholder=" " name="media" [(ngModel)]="orderCodeLookupModel.media.value">
+
+            </div>
+
+
+          </div>
+
+          <div class="row ">
+
+            <div class="form-group col-md-6 ">
+
+              <label for="LastName">Term</label>
+
+              <app-dropdown-with-description name="test" [(ngModel)]="orderCodeLookupModel.term.value" [Data]="orderTermdata">
+              </app-dropdown-with-description>
+            </div>
+
+            <div class="form-group col-md-6">
+
+              <label for="LastName ">Edition</label>
+              <input type="text" class="form-control " placeholder=" " name="edition" [(ngModel)]="orderCodeLookupModel.edition.value">
+            </div>
+
+          </div>
+
+
+
+        </fieldset>
+      </div>
+
+      <div class="note pb-3">
+        <small class="text-mute ">
+          <em>
+            <strong> Note :</strong>Enter any combination of fields These are subscription Attributes Specifide on the Order Code itself.
+          </em>
+        </small>
+      </div>
+
+
+    </div>
+    <div id="option3" class="group" [hidden]="!flage3">
+      <div class="border mt-2  p-2 pt-4">
+        <fieldset>
+          <legend class=" text-uppercase">Search Criteria</legend>
+          <div class="row ">
+            <div class="form-group col-md-6 ">
+              <label for="LastName ">Order Class</label>
+              <app-dropdown-with-description name="test" [(ngModel)]="orderCodeLookupModel.orderClass.value" [Data]="orderClassdata">
+              </app-dropdown-with-description>
+              <!-- <app-dropdown-with-description [data]="orderClassdata" name="orderClass" [basicSetting]="ddOptionsorderClass" [(ngModel)]="orderCodeLookupModel.orderClass.value">
+              </app-dropdown-with-description> -->
+
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="LastName">Product Size</label>
+              <input type="text" class="form-control " placeholder=" " name="productSize" [(ngModel)]="orderCodeLookupModel.productSize.value">
+            </div>
+
+
+          </div>
+
+          <div class="row ">
+
+
+            <div class="form-group col-md-6">
+              <label for="LastName ">Product Style</label>
+              <input type="text" class="form-control " placeholder=" " name="productStyle" [(ngModel)]="orderCodeLookupModel.productStyle.value">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="LastName">Product Color</label>
+              <input type="text" class="form-control " placeholder=" " name="productColor" [(ngModel)]="orderCodeLookupModel.productColor.value">
+
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <div class="note pb-3">
+        <small class="text-mute ">
+          <em>
+            <strong> Note :</strong>Enter any combination of fields These are subscription Attributes Specifide on the Order Code itself.
+          </em>
+        </small>
+      </div>
+    </div>
+    <div id="option4" class="group" [hidden]="!flage4">
+      <div class="border mt-2  p-2 pt-4">
+        <fieldset>
+          <legend class=" text-uppercase">Search Criteria</legend>
+
+          <div class="row ">
+
+            <div class="form-group col-md-6">
+              <label for="LastName">ID</label>
+              <input type="text" class="form-control " placeholder=" " name="ID" [(ngModel)]="orderCodeLookupModel.ID.value">
+
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="LastName ">Discription</label>
+              <input type="text" class="form-control " placeholder=" " name="discription" [(ngModel)]="orderCodeLookupModel.discription.value">
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <div class="note pb-3">
+        <small class="text-mute ">
+          <em>
+            <strong> Note :</strong>Enter item form QA</em>
+        </small>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="form-group col-md-12 text-right ">
+        <div class="right popup-border-btn col-md-12 ">
+          <button type="button" class="btn btn-secondary " (click)="reset()">
+            <i class="fa fa-refresh " aria-hidden="true "></i> Reset</button>
+          &nbsp;&nbsp;
+          <button type="button" class="btn btn-primary" (click)="getOrderCodeSearch()">
+            <i class="fa fa-search " aria-hidden="true "></i> Search Customer</button>
+        </div>
+
+      </div>
+    </div>
+    <hr>
+    <div class="row ">
+      <div class="col-12">
+
+        <div class="agGridSize" *ngIf="showTable">
+
+
+          <app-ag-grid [context]="context" [frameworkComponents]="frameworkComponents" [name]="'documentreference'" [myGridOptions]="gridOptions" (myGridReady)="doOnGridReadyDocRef($event)"
+            [export]="false">
+          </app-ag-grid>
+
+
+        </div>
+      </div>
+    </div>
+
+    <br/>
+    <!-- <div class="row ">
+      <div class="col-md-12 text-right my-3">
+
+        <button type="button" class="btn btn-primary">
+          <i class="fa fa-search"></i> Search</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="getOrderCode()">
+          <i class="fa fa-check-square-o"></i> Select</button>
+        <button type="button" class="btn btn-dark" disabled="">
+          <i class="fa fa-plus"></i> Add..</button>
+        <button type="button" class="btn btn-light" data-dismiss="modal">
+          <i class="fa fa-times"></i> Cancel</button>
+      </div>
+    </div> -->
+  </div>
+</div>
+
+
+
+
+
+<!-- 
+<ng-template #orderClassDropdown>
+  <app-dropdown-with-description [data]="orderClassdata" name="orderClass" [basicSetting]="ddOptionsorderClass" [(ngModel)]="orderCodeLookupModel.orderClass.value">
+  </app-dropdown-with-description>
+</ng-template> -->

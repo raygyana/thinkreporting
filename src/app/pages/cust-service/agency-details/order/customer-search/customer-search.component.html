@@ -1,0 +1,20 @@
+<div class="modal-body">
+  <div class="clearfix"></div>
+  <div class="content-box-inner">
+
+    <div class="row ">
+      <div class="col-12">
+        <div class="agGridSize">
+          <app-ag-grid [context]="context" [frameworkComponents]="frameworkComponents" [name]="'Customersearch'" [myGridOptions]="gridOptions" (myGridReady)="doOnGridReadyDocRef($event)"
+            [export]="false">
+          </app-ag-grid>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <!-- <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="getCustomerBillToAddress()">
+      <i class="fa fa-check-square-o"></i> Select</button> -->
+
+
+  </div>
+</div>

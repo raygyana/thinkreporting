@@ -1,0 +1,61 @@
+<div class="modal-body">
+  <div class="clearfix"></div>
+  <div class="content-box-inner">
+
+    <div class="border mt-2  p-2 pt-4">
+      <fieldset>
+        <legend class=" text-uppercase">Search Criteria</legend>
+        <div class="row ">
+
+          <div class="form-group col-md-4 ">
+            <label for="LastName ">Agency Code</label>
+            <input type="text " class="form-control " placeholder=" " name="agencyCode" [(ngModel)]="agencyListModel.agencyCode.value">
+          </div>
+
+          <div class="form-group col-md-4 ">
+            <label for="company">Company</label>
+            <input type="text " class="form-control " placeholder=" " name="company" [(ngModel)]="agencyListModel.company.value">
+          </div>
+
+          <div class="form-group col-md-4 ">
+            <label for="customerId">ID</label>
+            <input type="text " class="form-control " placeholder=" " name="customerId" [(ngModel)]="agencyListModel.customerId.value">
+          </div>
+
+        </div>
+
+
+        <div class="row ">
+
+          <div class="form-group col-md-12 text-right ">
+            <div class="right popup-border-btn col-md-12 ">
+
+
+              &nbsp;&nbsp;
+              <button type="button " class="btn btn-primary " (click)="getAgencySearch()">
+                <i class="fa fa-search " aria-hidden="true "></i> Search Agency</button>
+
+            </div>
+
+          </div>
+        </div>
+
+      </fieldset>
+    </div>
+
+
+
+    <div class="row ">
+      <div class="col-12">
+        <div class="agGridSize">
+          <app-ag-grid [name]="'AgencyList'" [myGridOptions]="gridOptions" (myGridReady)="doOnGridReadyDocRef($event)" [export]="false">
+          </app-ag-grid>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <!-- <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="getAgency()">
+      <i class="fa fa-check-square-o"></i> Select</button> -->
+
+  </div>
+</div>

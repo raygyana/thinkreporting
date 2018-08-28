@@ -1,0 +1,371 @@
+<div class="whiteBg tabContent">
+  <form #baseForm="ngForm">
+    <div class="col-md-12">
+      <h4>Edit Payment</h4>
+    </div>
+
+    <hr class="borderBtm">
+    <div class="row">
+      <div class=" col-sm-4 col-md-4">
+        <div class="border m-1 p-2 pt-4">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label class="form-control-label"> Current Customer</label>
+              <input id="customerId" name="customerId" class="form-control" readonly type="text" [(ngModel)]="editPaymentModel.customerId.value">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="form-control-label">&nbsp;</label>
+              <input id="fullName" name="fullName" class="form-control" readonly type="text" [(ngModel)]="editPaymentModel.fullName.value">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Payer Customer</label>
+              <input id="customerId" name="customerId" class="form-control" readonly type="text" [(ngModel)]="editPaymentModel.payerCustomer.value">
+              <!-- <select class="form-control custom-select">
+                  <option></option>
+                </select> -->
+            </div>
+            <div class="form-group col-md-6">
+              <label class="form-control-label">&nbsp;</label>
+              <input name="fullName" class="form-control" readonly type="text" [(ngModel)]="editPaymentModel.fullName.value">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label class="form-control-label">Payer Address</label>
+              <div class="input-group">
+                <input id="address1" name="address1" class="form-control" readonly type="text" [(ngModel)]="editPaymentModel.address1.value">
+                <!-- <div class="input-group-btn">
+                  <button type="button" class="btn btn-primary">
+                    ...
+                  </button>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Name On Card</label>
+              <input type="text" name="fullName" class="form-control" readonly [(ngModel)]="editPaymentModel.fullName.value" placeholder="">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Date</label>
+              <input name="creationDate" class="form-control" readonly [(ngModel)]="editPaymentModel.creditCardStartDate.value">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label class="form-control-label">Currency
+                <font color="red"> * </font>
+              </label>
+              <input id="currency" name="currency" type="text" class="form-control " [(ngModel)]="editPaymentModel.currency.value" readonly>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class=" col-sm-4 col-md-4">
+        <div class="border m-1 p-2 pt-4">
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label class="form-control-label">Base Amt</label>
+              <input id="payCurrencyAmount" name="payCurrencyAmount" class="form-control" [(ngModel)]="editPaymentModel.baseAmount.value"
+                readonly="readonly" type="text">
+            </div>
+            <div class="form-group col-md-5">
+              <label class="form-control-label">Payment Amt</label>
+              <input id="baseAmount" name="baseAmount" class="form-control" [(ngModel)]="editPaymentModel.baseAmount.value" readonly="readonly"
+                type="text">
+            </div>
+
+
+            <div class="form-group col-md-3">
+              <label class="form-control-label">Exch.Rt</label>
+              <input id="exchangeRate" name="exchangeRate" class="form-control" [(ngModel)]="editPaymentModel.exchangeRate.value" readonly="readonly"
+                type="text">
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Payment Account</label>
+              <input type="text" class="form-control" name="input" readonly placeholder="" [(ngModel)]="editPaymentModel.paymentAccountSeq.value">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="form-control-label">&nbsp;</label>
+              <input type="text" class="form-control" name="input1" readonly="true" placeholder="" [(ngModel)]="editPaymentModel.fullName.value">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Credit Card #</label>
+              <input type="text" class="form-control" name="creditCardInfo" readonly placeholder="" [(ngModel)]="editPaymentModel.creditCardInfo.value">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Check Cheque #</label>
+              <input type="text" class="form-control" name="checkNumber" readonly placeholder="" [(ngModel)]="editPaymentModel.checkNumber.value">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Payment Type
+                <font color="red"> * </font>
+              </label>
+              <input type="text" class="form-control" id="recipient-name" name="paymentType" readonly placeholder="" [(ngModel)]="editPaymentModel.paymentType.value">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label class="form-control-label">Expire</label>
+              <input type="text" class="form-control" readonly="true" name="expDate" [(ngModel)]="editPaymentModel.expDate.value">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="form-control-label">verification Value</label>
+              <input id="cardVerificationValue" name="cardVerificationValue" class="form-control" [(ngModel)]="editPaymentModel.cardVerificationValue.value"
+                readonly type="text">
+              <small>(On back of card)</small>
+            </div>
+            <div class="form-group col-md-4">
+              <label class="form-control-label">Start Date</label>
+              <input id="creditCardStartDate" name="creditCardStartDate" class="form-control" readonly [(ngModel)]="editPaymentModel.creditCardStartDate.value">
+              <small>(Maestro/Solo)</small>
+            </div>
+            <div class="form-group col-md-2">
+              <label class="form-control-label">Issue</label>
+              <input id="creditCardIssueId" name="creditCardIssueId" class="form-control" [(ngModel)]="editPaymentModel.creditCardIssueId.value"
+                readonly="readonly" type="text">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label class="form-control-label">Trasanction Reason
+              </label>
+              <input name="transactionReason" type="text" class="form-control " [(ngModel)]="editPaymentModel.transactionReason.value">
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class=" col-sm-4 col-md-4">
+        <div class="border m-1 p-2 pt-4">
+          <fieldset>
+            <legend class=" text-uppercase">TRANSACTION INFORMATION</legend>
+            <div class="row">
+              <label for="inputPassword" class="col-md-5 form-group col-form-label text-right">Transaction Status
+                <font color="red">*</font>
+              </label>
+              <div class="col-md-7">
+                <input name="creditCardIssueId" class="form-control" [(ngModel)]="editPaymentModel.paymentClearStatusDesc.value" type="text"
+                  readonly>
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right"> Auth Date</label>
+              <div class="col-md-7">
+                <input name="authDate" class="form-control" [(ngModel)]="editPaymentModel.authDate.value">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right"> Auth Code</label>
+              <div class="col-md-7">
+                <input name="authCode" class="form-control" type="text" [(ngModel)]="editPaymentModel.authCode.value">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right"> Reference #</label>
+              <div class="col-md-7">
+                <input name="refNbr" class="form-control" type="text" [(ngModel)]="editPaymentModel.refNbr.value">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right"> Date Cleared</label>
+              <div class="col-md-7">
+                <input name="clearDate" class="form-control" [(ngModel)]="editPaymentModel.clearDate.value">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right"> Settle Retries Left</label>
+              <div class="col-md-7">
+                <input name="nSettleRetriesLeft" class="form-control" readonly type="text" [(ngModel)]="editPaymentModel.cancelItmAfterSettleRetry.value">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right">Next pretry</label>
+              <div class="col-md-7">
+                <input name="nextSettleRetryDate" class="form-control" readonly="readonly" type="text" [(ngModel)]="editPaymentModel.fullName.value">
+              </div>
+            </div>
+            <div class="row">
+              <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right">Invoice Effort#</label>
+              <div class="col-md-7">
+                <input name="effortNbr" class="form-control" readonly="readonly" type="text" [(ngModel)]="editPaymentModel.effortNbr.value">
+              </div>
+            </div>
+            <!-- <div class="row">
+                <label for="inputPassword" class="col-md-5 form-group  col-form-label text-right">User</label>
+                <div class="col-md-7">
+                  <input type="text" class="form-control" id="inputPassword" placeholder="THK">
+                </div>
+              </div> -->
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row pt-3">
+    <div class="col-md-6">
+      <div class="border m-1 p-2 pt-4 pb-4">
+        <fieldset>
+          <legend class=" text-uppercase">Overpayment Handling</legend>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-radio">
+                <label class="custom-control custom-radio">
+                  <input name="radio" type="radio" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Place In Customer Deposit Accounts</span>
+                </label>
+              </div>
+              <div class="form-radio">
+                <label class="custom-control custom-radio">
+                  <input name="radio" type="radio" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Use Payment Threshold Settings</span>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-control-label">Amount</label>
+                <input type="text" class="form-control" id="recipient-name" placeholder="" readonly>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="border m-1 p-2 pt-4">
+        <fieldset>
+          <legend class=" text-uppercase">Order Filter</legend>
+          <div class=" form-row">
+            <div class="col-md-5">
+              <div class="form-row">
+                <label for="inputPassword" class="col-md-3 col-form-label form-group text-right">Show</label>
+                <div class="col-md-8">
+                  <app-select name="test" [(ngModel)]="dropDown" [basicSetting]="showBasicSetting">
+                  </app-select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-row pl-3">
+                <label for="inputPassword" class=" col-form-label"> Order Where The</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="row">
+                <div class="form-row">
+                  <div class="col-md-11">
+                    <app-select name="test" [(ngModel)]="dropDown" [basicSetting]="orderWhereBasicSetting">
+                    </app-select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-5">
+              <div class="form-row">
+                <label for="inputPassword" class="col-md-3  col-form-label text-right">Is The</label>
+                <div class="col-md-8">
+                  <app-select name="test" [(ngModel)]="dropDown" [basicSetting]="isTheBasicSetting">
+                  </app-select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group row">
+                <button type="button" class="btn btn-primary">
+                  <i class="fa fa-filter" aria-hidden="true"></i> Apply Filter</button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div> -->
+    <div class="row pt-3">
+      <div class="col-md-12">
+        <div class="border m-1 p-2 pt-4">
+
+          <div class="agGridSize">
+            <app-ag-grid [name]="'editPaymentsReports'" [myGridOptions]="gridOptionsReports" (myGridReady)="doOnGridReadyEditPaymentsReports($event)"></app-ag-grid>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content pt-3 border m-1 p-2 pt-4">
+      <div class="col-md-4">
+        <div class="row">
+          <label for="inputPassword" class=" col-form-label">Order Currency</label>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <label for="inputPassword" class=" col-form-label">Due (GBP)</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="order-currency" placeholder="0.00" name="order-currency" [(ngModel)]="editPaymentModel.baseAmount.value"
+                  readonly="readonly">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row form-group ">
+              <button type="button" class="btn btn-primary">Set Amount</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-row">
+          <label for="inputPassword" class="col-form-label">Payment Currency</label>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6">
+            <div class="form-row">
+              <label for="inputPassword" class=" col-form-label">Due ({{editPaymentModel.currency.value}})</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="pay-currency" placeholder="0.00" name="pay-currency" [(ngModel)]="editPaymentModel.baseAmount.value"
+                  readonly="readonly">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-row">
+              <button type="button" class="btn btn-primary">Set Amount</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="row pt-4 pb-3 float-right">
+    <div class="col-12 ">
+
+      <button type="button" class="btn btn-primary">
+        <i class="fa fa-eye" aria-hidden="true"></i> Lookup Order</button>&nbsp;
+      <!-- <a href="" class="btn btn-primary">
+        <i class="fa fa-eye"></i> Lookup Order </a> -->
+      <button type="button" (click)="onEditCancel()" class="btn btn-light">
+        <i class="fa fa-times" aria-hidden="true"></i> Cancel</button>&nbsp;
+      <button type="submit" (click)="onEditPaymentSave()" class="btn btn-primary">
+        <i class="fa fa-floppy-o"></i> Save </button>
+    </div>
+  </div>
+</div>

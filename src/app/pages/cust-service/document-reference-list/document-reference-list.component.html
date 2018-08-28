@@ -1,0 +1,155 @@
+<section class="container-fluid my-3 custRow ">
+  <div class="row ">
+    <div class="col-md-12 ">
+      <div class="whiteBg tabContent active_link topArrow usrtoparrowPos2">
+        <div class="col-md-4">
+          <h4 id="addCustomerHeading">Document Reference</h4>
+        </div>
+        <hr>
+        <div class="row ">
+          <div class="col-md-12 pb-3">
+            <form #baseForm="ngForm" id="documentReferenceSearchForm" class="form-horizontal" novalidate="novalidate">
+              <!-- <legend class="text-uppercase">Filter</legend> -->
+              <div class="row">
+                <div class="form-group col-md-3 ">
+                  <label for="LastName ">Operator</label>
+
+                  <app-select name="operater" [(ngModel)]="documentReferenceModel.operator.value" [Data]="ddOptionsOperatorData" (change)="operaterChange($event)"></app-select>
+
+                  <!-- <app-dropdown-with-description [Data]="ddOptionsOperatorData" (change)="operaterChange($event)" [(ngModel)]="documentReferenceModel.operator.value" name="operater">
+                  </app-dropdown-with-description> -->
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="assignedTo">Assigned to</label>
+
+                    <app-select [Data]="ddOptionsAssignedtoData" [(ngModel)]="documentReferenceModel.assignedTo.value" name="assignedTo" myName="'assignedTo'"></app-select>
+
+                    <!-- <app-dropdown-with-description [Data]="ddOptionsAssignedtoData" [(ngModel)]="documentReferenceModel.assignedTo.value" name="assignedTo" myName="'assignedTo'">
+                    </app-dropdown-with-description> -->
+
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="batchTemplate">Batch Template</label>
+
+
+                    <app-select [Data]="ddOptionsBatchTemplateData" [(ngModel)]="documentReferenceModel.batchTemplate.value" name="batchTemplate"></app-select>
+
+                    <!-- <app-dropdown-with-description [Data]="ddOptionsBatchTemplateData" [(ngModel)]="documentReferenceModel.batchTemplate.value" name="batchTemplate">
+                    </app-dropdown-with-description> -->
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <input name="description" type="text" class="form-control " [(ngModel)]="documentReferenceModel.description.value">
+                    <small class="form-text text-muted">
+                      <strong>Note:</strong> Using an * as a wildcard</small>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-check form-check-inline">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="active" name="active" [(ngModel)]="documentReferenceModel.active.value">
+                      <span class="custom-control-label">Active</span>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="closed" name="closed" [(ngModel)]="documentReferenceModel.closed.value">
+                      <span class="custom-control-label">Closed</span>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customerService" name="customerService" [(ngModel)]="documentReferenceModel.customerService.value">
+                      <span class="custom-control-label"> Customer Service</span>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="batch" name="batch" [(ngModel)]="documentReferenceModel.batch.value">
+                      <span class="custom-control-label">Batch</span>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="Import" name="Import" [(ngModel)]="documentReferenceModel.import.value">
+                      <span class="custom-control-label">Import</span>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="Internet" name="Internet" [(ngModel)]="documentReferenceModel.internet.value">
+                      <span class="custom-control-label">Internet</span>
+                    </label>
+                  </div>
+
+                </div>
+
+
+                <div class="col-md-12 text-right mt-4">
+                  <div class="right popup-border-btn col-md-12 ">
+                    <button type="submit" class="btn btn-primary" (click)="doOnSubmit('search')">
+                      <i class="fa fa-search " aria-hidden="true "></i> Search
+                    </button>
+                    &nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary " (click)="ShowAllDocRef()">
+                      <i aria-hidden="true "></i> Show All
+                    </button>
+                    &nbsp;&nbsp;
+                    <button type="submit" class="btn btn-primary" (click)="AddnewDocRef()">
+                      <i class="fa fa-plus " aria-hidden="true "></i> Add New
+                    </button>
+                  </div>
+                  <hr>
+
+                </div>
+
+                <!-- <div class="col-md-4 pl-0">
+                      <p class="border p-2 bg-light">Enter the Description using an as * a wildcard</p>
+                    </div> -->
+              </div>
+
+
+
+            </form>
+
+
+          </div>
+        </div>
+
+
+        <!-- end new code -->
+        <div class="row">
+          <div class="col-12">
+            <div class="agGridSize">
+              <app-ag-grid [myGridOptions]="gridOptions" [searchModel]="documentReferenceModel" (myGridReady)="doOnGridReadyDocRef($event)">
+              </app-ag-grid>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="col-md-12 text-right my-3">
+      <button type="submit" class="btn btn-primary" (click)="AddnewDocRef()">
+        <i class="fa fa-plus " aria-hidden="true "></i> Add New
+      </button>
+    </div> -->
+  </div>
+</section>
+
+<app-custom-modal-pop-up [basicSetting]="addnewpopupSetting" [template]="addnewdoc"></app-custom-modal-pop-up>
+
+<ng-template #addnewdoc>
+  <app-add-document-reference [popUpData]="sendData" [oprKey]="oprKey" (changeDoc)="documentAddHidePop($event)"></app-add-document-reference>
+</ng-template>
+
+<app-custom-modal-pop-up [basicSetting]="EditpopupSetting" [template]="editDocRef"></app-custom-modal-pop-up>
+
+<ng-template #editDocRef>
+  <app-edit-document-reference [selectedData]="selectedData" (changeDoc)="documentEditHidePop($event)"></app-edit-document-reference>
+</ng-template>

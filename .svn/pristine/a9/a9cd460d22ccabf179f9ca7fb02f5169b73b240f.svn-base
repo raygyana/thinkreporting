@@ -1,0 +1,113 @@
+<section class="container-fluid my-3 custRow ">
+  <my-tabs #staticTabs>
+    <my-tab tabTitle="Description" [tabId]="CARD_REFRESH_DESCRIPTION_REPORT">
+      <div class="whiteBg tabContent">
+        <form name="form" #f="ngForm" ngNativeValidate>
+          <!-- <div class="col-12"> -->
+
+          <fieldset>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">Main Purpose</label>
+                  <input type="text" class="form-control" placeholder="Credit Card Token Refresh">
+                </div>
+              </div>
+              <!-- <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="user">ID</label>
+                    <input type="text" class="form-control" placeholder="114">
+                  </div>
+                </div> -->
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">Description
+                    <span class="mandatory"> *</span>
+                  </label>
+                  <input class="form-control" [(ngModel)]="description1" #description name="description1" id="description" required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group ">
+                  <label for="user">Default Priority</label>
+                  <input type="text" class="form-control" placeholder=" ">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group ">
+                  <label for="user">Extract Filter</label>
+                  <app-dropdown-with-description name="test" [(ngModel)]="dropDown" [basicSetting]="basicSetting">
+                  </app-dropdown-with-description>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">Default Queue</label>
+                  <app-dropdown-with-description name="test" [(ngModel)]="dropDown" [basicSetting]="basicSetting">
+                  </app-dropdown-with-description>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-check form-check-inline">
+                  <label class="custom-control custom-checkbox ">
+                    <input type="checkbox" class="custom-control-input">
+                      
+                    <span class="  custom-control-label">Active</span>
+                  </label>
+                </div>
+
+
+
+                <div class="form-check form-check-inline">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" data-toggle="modal" data-target="#repeating">
+                      
+                    <span class="  custom-control-label">Repeating</span>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+          </fieldset>
+
+
+
+          <!-- </div> -->
+
+          <div class="row pt-3">
+            <div class="col-12">
+              <div class="border mt-4 p-2 pt-4">
+                <fieldset>
+                  <legend class="text-uppercase">When to refresh tokens stored in payment account</legend>
+                  <p class="pb-2">A credit card token is a payment transaction reference id obtained from a payment gateway.</p>
+                  <p class="pb-2">For certain "secure store" bank definitions. this token can be used instead of the actual credit card number.
+                    <br>thus transfemng the risk of storing credit card numbers to the payment gateway.</p>
+                  <p class="pb-2">However. this token usually expires after a period of time.
+                    <br>But. prior to expiring. the system can obtain a refreshed token.</p>
+
+                  <div class="form-group row pt-3 pr-5">
+                    <label for="inputEmail3" class="col-5 col-form-label">Enter the age. in days. of tokens the system should refresh :</label>
+                    <div class="col-2 pl-0">
+                      <input type="email" class="form-control" style="margin-left:-57px;" id="inputEmail3" placeholder="">
+                    </div>
+
+                  </div>
+
+                </fieldset>
+              </div>
+
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <app-process-edit-footer [form]="f" (onDoSave)=doOnSave($event)></app-process-edit-footer>
+    </my-tab>
+    <my-tab tabTitle="Output" [tabId]="CARD_REFRESH_OUTPUT_REPORT">
+      <app-output>
+      </app-output>
+    </my-tab>
+
+  </my-tabs>
+</section>

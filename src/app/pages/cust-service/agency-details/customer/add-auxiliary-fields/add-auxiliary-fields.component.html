@@ -1,0 +1,57 @@
+<form class="form-horizontal" #f1=ngForm (OnSubmit)="f1.form.valid && doOnSubmit($event)">
+  <div class="clearfix"></div>
+
+  <div class="row">
+    <div class="col-12">
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Credit Limit Currency">
+            Credit Limit Currency</label>
+
+          <app-select [Data]="zzaux_credit_currency" [(ngModel)]="auxiliaryModel.zzaux_credit_currency.value" name="'creditStatus'">
+          </app-select>
+
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Credit Limit">
+            Credit Limit</label>
+          <input type="text" name="zzaux_credit_limit" maxlength="12" value="" [(ngModel)]="auxiliaryModel.zzaux_credit_limit.value"
+            class="form-control" placeholder="">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Default Credit Terms">
+            Default Credit Terms</label>
+
+          <app-select [Data]="zzauxCreditTermsData" (change)="creditStatusChange($event)" [(ngModel)]="auxiliaryModel.zzaux_credit_terms.value"
+            name="'creditStatus'">
+          </app-select>
+
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Is Bad Debtors">
+            Is Bad Debtors</label>
+          <app-select [Data]="zzauxIsBadDebtorData" (change)="creditStatusChange($event)" [(ngModel)]="auxiliaryModel.zzaux_is_bad_debtor.value"
+            name="'creditStatus'">
+          </app-select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-12 text-right mt-3">
+      <button type="submit" id="submit" class="btn btn-primary">
+        <i class="fa fa-floppy-o"></i> Save
+      </button>
+    </div>
+  </div>
+</form>

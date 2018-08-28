@@ -1,0 +1,138 @@
+<div class="whiteBg tabContent">
+
+  <div class="border mt-4 p-2 pt-4">
+    <fieldset>
+      <legend class="text-uppercase">Billing Definition</legend>
+      <div class="agGridSize">
+        <app-ag-grid [name]="'BillingDefinitionReports'" [myGridOptions]="gridOptionsReports" (myGridReady)="doOnGridReadyBillingDefinitionReports($event)"></app-ag-grid>
+      </div>
+    </fieldset>
+  </div>
+  <div class="pt-2">
+    <div class="border mt-4 p-2 pt-4">
+      <fieldset>
+        <legend class="text-uppercase">Applies to These Order Classes</legend>
+
+        <div class="form-check form-check-inline">
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+
+            <span class="  custom-control-label">Show All</span>
+          </label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+
+            <span class="  custom-control-label">Generate Billing Codes</span>
+          </label>
+        </div>
+        <div class="agGridSize">
+          <app-ag-grid [name]="'BillingOrderClass'" [myGridOptions]="gridOptionsReports1" (myGridReady)="doOnGridReadyBillingOrderClassReports($event)"></app-ag-grid>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="pt-4">
+      <div class="border mt-4 p-2 pt-4">
+        <fieldset>
+          <legend class="text-uppercase">Efforts</legend>
+          <div class="agGridSize">
+            <app-ag-grid [name]="'BillingOrderClass'" [myGridOptions]="gridOptionsReports2" (myGridReady)="doOnGridReadyBillingEffortsReports($event)"></app-ag-grid>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 pt-3">
+        <div class="border mt-4 p-2 pt-4">
+          <fieldset>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group ">
+                  <label for="user">Nth Definition</label>
+                  <app-dropdown-with-description name="test" [(ngModel)]="dropDown" [basicSetting]="basicSetting">
+                  </app-dropdown-with-description>
+                </div>
+              </div>
+              <div class="col-md-6 pt-4">
+                <div class="form-check pt-2">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input ">
+                    <span class="custom-control-indicator disabled"></span>
+                    <span class="  custom-control-label disabled">include profoma order</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="col-6 pt-3">
+        <div class="border mt-4 p-2 pt-4">
+          <fieldset>
+            <legend class="text-uppercase">Generate Group Bar Codes</legend>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-check ">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input ">
+                    <span class="custom-control-indicator disabled"></span>
+                    <span class="  custom-control-label disabled">Bill-to </span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-check">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input ">
+                    <span class="custom-control-indicator disabled"></span>
+                    <span class="  custom-control-label disabled">Billing Definition</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-check ">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input ">
+                    <span class="custom-control-indicator disabled"></span>
+                    <span class="  custom-control-label disabled">Currency</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-check ">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input ">
+                    <span class="custom-control-indicator disabled"></span>
+                    <span class="  custom-control-label disabled">Order Class</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-check ">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input ">
+                    <span class="custom-control-indicator disabled"></span>
+                    <span class="  custom-control-label disabled">Order Number</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<div class="col-md-12 text-right my-3">
+  <button type="button" class="btn btn-primary" data-dismiss="modal">
+    <i class="fa fa-floppy-o"></i> Save
+  </button>
+  <button type="button" class="btn btn-light" data-dismiss="modal">
+    <i class="fa fa-times" aria-hidden="true"></i> Cancel
+  </button>
+</div>

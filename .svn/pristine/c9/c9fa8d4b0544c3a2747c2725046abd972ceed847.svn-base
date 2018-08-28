@@ -1,0 +1,58 @@
+<div class="modal-body">
+  <div class="clearfix"></div>
+  <form #baseForm="ngForm" name="form">
+    <div class="row ">
+      <div class="col-md-12">
+        <div class="form-row">
+          <div class="form-group col-md-6 text-left">
+            <label for="user">Customer ID</label>
+            <input type="text" class="form-control" name="customerId" [(ngModel)]="paymentsBreakDownModel.customerId.value" readonly
+              placeholder="">
+          </div>
+          <div class="form-group col-md-6 text-left">
+            <label for="user">Payment</label>
+            <input type="text" class="form-control" name="paymentSeq" [(ngModel)]="paymentsBreakDownModel.paymentSeq.value" readonly
+              placeholder="">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3 text-left">
+            <label for="user">Payment Amount</label>
+            <input type="text" name="payCurrencyAmount" class="form-control" [(ngModel)]="paymentsBreakDownModel.payCurrencyAmount.value"
+              placeholder="">
+          </div>
+          <div class="form-group col-md-3 text-left">
+            <label for="user">Base Amount</label>
+            <input type="text" name="baseAmount" class="form-control" [(ngModel)]="paymentsBreakDownModel.baseAmount.value" readonly
+              placeholder="">
+          </div>
+          <div class="form-group col-md-3 text-left">
+            <label for="user">Deposit Amount</label>
+            <input type="text" name="customerDepositPayAmt" class="form-control" [(ngModel)]="paymentsBreakDownModel.customerDepositPayAmt.value"
+              readonly="true" placeholder="">
+          </div>
+          <div class="form-group col-md-3 text-left">
+            <label for="user">Refund Deposit Amount</label>
+            <input type="text" name="refundDepositPayAmt" class="form-control" [(ngModel)]="paymentsBreakDownModel.refundDepositPayAmt.value"
+              readonly placeholder="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="agGridSize">
+          <app-ag-grid [name]="'paymentsReports'" [myGridOptions]="gridOptionsReports" (myGridReady)="doOnGridReadyPaymentsReports($event)"></app-ag-grid>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="col-md-12 text-right my-3">
+
+    <!-- <button type="button" class="btn btn-primary">
+      <i class="fa fa-eye"></i> View Order Item Details </button> -->
+    <button class="btn btn-primary" data-dismiss="modal">
+      <i></i> OK</button>
+  </div>
+</div>

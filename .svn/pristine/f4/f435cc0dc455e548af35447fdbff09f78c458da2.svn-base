@@ -1,0 +1,258 @@
+<form #baseForm="ngForm">
+  <div class="col-md-12" *ngIf="conditionalButton">
+    <div class="border mt-2  p-2 pt-4">
+      <fieldset style="text-align: center;">
+        <legend class=" text-uppercase">INFORMATON</legend>
+        <p>
+          Effective Date for future address is todays.
+          <br> Do you wish to replace the current primary address and future address now ?
+        </p>
+        <p>
+          <br>
+          <button type="submit" class="btn btn-primary" (click)="UpdatePermanentAddress()">
+            Yes</button>
+          <button type="submit" class="btn btn-primary" (click)="AddTempOrPermanentAddress()">
+            No</button>
+        </p>
+      </fieldset>
+    </div>
+  </div>
+  <div class="content-box-inner">
+    <div class="col-md-12">
+      <div class="border mt-2  p-2 pt-4">
+        <fieldset>
+          <legend class=" text-uppercase">CUSTOMER NAME</legend>
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="user">Salutation</label>
+              <input [(ngModel)]="addressModel.salutation.value" name="salutation" type="text" class="form-control" value="Miss" maxlength="15">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="user">First Name</label>
+              <input [(ngModel)]="addressModel.fName.value" name="fName" type="text" class="form-control" value="Karen" maxlength="40">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="user">Initial</label>
+              <input [(ngModel)]="addressModel.initial.value" name="initial" type="text" class="form-control" maxlength="40">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="user">Last Name</label>
+              <input [(ngModel)]="addressModel.lName.value" name="lName" type="text" class="form-control" maxlength="40">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="user">Suffix</label>
+              <input [(ngModel)]="addressModel.suffix.value" name="suffix" type="text" class="form-control" value="" maxlength="5">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-12" *ngIf="popUpType && popUpType.type=='temp'">
+      <div class="border mt-2  p-2 pt-4">
+        <fieldset>
+          <legend class=" text-uppercase">FUTURE/TEMP DETAIL</legend>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="changeAddress">Is Pending Change For Address</label>
+              <input name="changeAddress" [(ngModel)]="customerTempAddressModel.changeAddress.value" type="text" class="form-control" readonly="readonly"
+                maxlength="15">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="from">From
+                <font color="red"> * </font>
+              </label>
+              <my-date-picker name="fromdate" [options]="myDatePickerOptions" [(ngModel)]="customerTempAddressModel.from.value" (dateChanged)="fromdate($event)"
+                validator-ui vRequired="Date Required"></my-date-picker>
+              <!-- <input name="from" placeholder="DD/MM/YYYY" type="date" class="form-control hasDatepicker" maxlength="10" [(ngModel)]="customerTempAddressModel.from.value"
+                ngvalidator-ui vRequired="Date Required"> -->
+            </div>
+            <div class="form-group col-md-3">
+              <label for="to">To
+                <!-- <font color="red"> * </font> -->
+              </label>
+              <!-- <input name="to" placeholder="DD/MM/YYYY" type="date" class="form-control hasDatepicker" [(ngModel)]="customerTempAddressModel.to.value"
+                maxlength="10" ngvalidator-ui vRequired="Date Required"> -->
+              <my-date-picker name="mydate" [options]="myDatePickerOptions" (dateChanged)="todate($event)" [(ngModel)]="customerTempAddressModel.to.value"></my-date-picker>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-3">
+              <label for="futureOrTemp"> Change tax based on </label>
+            </div>
+            <div class="col-md-2">
+              <label class="custom-control custom-radio">
+                <input name="futureOrTemp" class="custom-control-input" (change)="RadioButtonChnage($event)" [(ngModel)]="customerTempAddressModel.futureOrTemp.value"
+                  type="radio" value="0">
+                <span class="custom-control-label">Future</span>
+              </label>
+            </div>
+            <div class="col-md-3 pl-3">
+              <label class="custom-control custom-radio">
+                <input name="futureOrTemp" (change)="RadioButtonChnage($event)" [(ngModel)]="customerTempAddressModel.futureOrTemp.value"
+                  class="custom-control-input" type="radio" value="1" checked="checked">
+                <span class="custom-control-label">Temp</span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-md-12">
+      <div class="border mt-2  p-2 pt-4">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="user">Customer ID</label>
+            <input [(ngModel)]="addressModel.customerId.value" name="customerId" type="text" class="form-control" readonly="readonly"
+              value="566">
+
+          </div>
+          <div class="form-group col-md-6">
+            <label for="user">Title</label>
+            <input [(ngModel)]="addressModel.title.value" name="title" type="text" class="form-control" value="" maxlength="150">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="user"> Company</label>
+            <input [(ngModel)]="addressModel.company.value" name="company" type="text" class="form-control" value="Nielsen Media Research"
+              maxlength="80">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="user">Department</label>
+            <input [(ngModel)]="addressModel.department.value" name="department" type="text" class="form-control" value="" maxlength="80">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="user"> Address 1</label>
+            <input [(ngModel)]="addressModel.address1.value" name="address1" type="text" class="form-control" value="First Floor" maxlength="80">
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="user"> Address 2</label>
+            <input [(ngModel)]="addressModel.address2.value" name="address2" type="text" class="form-control" maxlength="80">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="user"> Address 3</label>
+            <input [(ngModel)]="addressModel.address3.value" name="address3" type="text" class="form-control" maxlength="80">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="user">State
+              <font color="red"> * </font>
+            </label>
+            <app-select name="'state'" [Data]="ddOptionsStateData" [(ngModel)]="addressModel.state.value" (change)="stateChange($event)"
+              validator-ui vRequired="State is Required">
+            </app-select>
+          </div>
+
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="user">City
+              <font color="red"> * </font>
+            </label>
+            <input [(ngModel)]="addressModel.city.value" name="city" type="text" class="form-control" validator-ui vRequired="City is Required"
+              maxlength="50">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="user">Zip/Postal</label>
+            <input [(ngModel)]="addressModel.zip.value" name="zip" type="text" class="form-control" value="RG12 1BZ" maxlength="15">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="user">Country</label>
+            <input [(ngModel)]="addressModel.country.value" name="country" type="text" class="form-control" readonly="readonly">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="user">County</label>
+            <input [(ngModel)]="addressModel.county.value" name="county" type="text" class="form-control" maxlength="25">
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="user"> Phone 1</label>
+          <!-- <input [(ngModel)]="addressModel.phone1.value" name="phone1" data-bvalidator="number" type="text" class="form-control" value="01344 469100"
+            maxlength="50"> -->
+          <input [(ngModel)]="addressModel.phone1.value" name="phone1" type="text" class="form-control" [textMask]="{mask: mask}" pattern="\+\d \(\d{3}\) \d{3}-\d{5}"
+          />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="user"> Phone 2 </label>
+          <!-- <input [(ngModel)]="addressModel.phone2.value" name="phone2" data-bvalidator="number" type="text" class="form-control" value=""
+            maxlength="50"> -->
+          <input [(ngModel)]="addressModel.phone2.value" name="phone2" type="text" class="form-control" [textMask]="{mask: mask}" pattern="\+\d \(\d{3}\) \d{3}-\d{5}"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="user">Fax</label>
+          <input [(ngModel)]="addressModel.fax.value" name="fax" data-bvalidator="number" type="text" class="form-control" value=""
+            maxlength="50">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="user">E-mail</label>
+          <input [(ngModel)]="addressModel.email.value" name="email" type="text" class="form-control" maxlength="100" validator-ui
+            vEmail="Invalid Email">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="user">Tax Id</label>
+          <input [(ngModel)]="addressModel.taxID.value" [disabled]="taxIDFiels" name="taxID" type="text" class="form-control" value=""
+            maxlength="15">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="user">Special Tax ID </label>
+          <app-select [Data]="ddOptionsSpecialTaxID" [(ngModel)]="SpecailTaxId" name="'specialTaxId'" outputKey="complete" (remove)="removeTextBoxValue()"
+            (change)="SpecialTaxIDEvent($event)">
+          </app-select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="user">Institutional Identifier</label>
+          <input [(ngModel)]="addressModel.institutionalIdentifier.value" name="institutionalIdentifier" type="text" class="form-control"
+            value="" maxlength="15">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="user">Address Type
+            <font color="red"> * </font>
+          </label>
+          <app-select [Data]="ddOptionsAddressType" [(ngModel)]="addressModel.addressType.value" name="'addressType'" validator-ui
+            vRequired="Address Type is Required">
+          </app-select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="user"> Address Status
+            <font color="red"> * </font>
+          </label>
+          <app-select [Data]="ddOptionsAddressStatus" [(ngModel)]="addressModel.addressStatus.value" name="'addressStatus'" validator-ui
+            vRequired="Address Status is Required">
+          </app-select>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="col-md-12 text-right my-3">
+    <p>
+      <button type="submit" class="btn btn-primary" *ngIf="popUpType.action !== 'edit'" (click)="addNewAddress()">
+        <i class="fa fa-floppy-o"></i> Save</button>
+      <button type="submit" class="btn btn-primary" *ngIf="popUpType.action === 'edit'" (click)="UpdateAddress()">
+        <i class="fa fa-floppy-o"></i> Update</button>
+    </p>
+  </div>
+</form>

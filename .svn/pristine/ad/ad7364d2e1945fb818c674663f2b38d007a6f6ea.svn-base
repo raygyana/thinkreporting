@@ -1,0 +1,115 @@
+<!-- <div class="whiteBg tabContent" *ngIf="page == 'addorder'||page == 'editorder'">
+  <a (click)="goToOrder()">
+    <span itemprop="title">
+      <u>Order</u>
+    </span>
+  </a>
+  <span itemprop="title" *ngIf="page == 'addorder'">&gt;&gt;Add Order</span>
+  <span itemprop="title" *ngIf="page == 'editorder'">&gt;&gt;Edit Order</span>
+</div> -->
+
+<div class="tab-content">
+  <div id="tab1" class="tab-pane fade show active ">
+    <div class="whiteBg tabContent">
+
+      <form id="customerEditForm" action="/customerEdit" method="post" novalidate="novalidate">
+        <div class="content-box-inner">
+          <div class="row ">
+            <div class="  col-md-1 ">
+              <label for="test "> View
+              </label>
+            </div>
+            <!-- <app-dropdown-with-description [(ngModel)]="orderModel.view.value" name="view" [basicSetting]="ddOptionsOperator">
+
+              </app-dropdown-with-description> -->
+            <!-- <select class="custom-select col-sm-9" (click)="onClick()">
+                <option>All Orders</option>
+                <option value="1">Subscriptions</option>
+                <option value="2">Single Copy Orders</option>
+                <option value="3">Electronic Documents</option>
+                <option value="4">Product Orders</option>
+                <option value="5">Package Orders</option>
+              </select> -->
+            <div class="  col-md-2 ">
+              <app-dropdown-with-description name="test" [(ngModel)]="orderModel.orderType.value" [Data]="viewdropdowndata" (change)="goToOrder()">
+              </app-dropdown-with-description>
+
+            </div>
+
+            <div class="col-md-9">
+              <div class="  form-check-inline">
+                <div class="custom-control custom-checkbox mr-3">
+                  <input type="checkbox" class="custom-control-input" id="showinactiveorders" name="showinactiveorders" [(ngModel)]="orderModel.inActive.value"
+                    (change)="goToOrder()">
+                  <label class="custom-control-label" for="showinactiveorders">Show Inactive Orders</label>
+                </div>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <div class="custom-control custom-checkbox mr-3">
+                  <input type="checkbox" class="custom-control-input" id="paid" name="paid" [(ngModel)]="orderModel.paid.value" (change)="goToOrder()">
+                  <label class="custom-control-label" for="paid">Paid</label>
+                </div>
+                <div class="custom-control custom-checkbox mr-3">
+                  <input type="checkbox" class="custom-control-input" id="controlled" name="controlled" [(ngModel)]="orderModel.controlled.value" (change)="goToOrder()">
+                  <label class="custom-control-label" for="controlled">Controlled</label>
+                </div>
+                <div class="custom-control custom-checkbox ">
+                  <input type="checkbox" class="custom-control-input" id="complimentary" name="complimentary" [(ngModel)]="orderModel.complimentary.value" (change)="goToOrder()">
+                  <label class="custom-control-label" for="complimentary">Complimentary</label>
+                </div>
+              </div>
+              <div class="form-check form-check-inline">
+                <button type="submit" class="btn btn-primary" (click)="addNewOrder()">
+                  <i class="fa fa-plus " aria-hidden="true "></i> Add Order
+                </button>
+              </div>
+            </div>
+          </div>
+          <hr class="borderBtm">
+
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="agGridSize">
+              <app-ag-grid [name]="'documentreference'" [myGridOptions]="gridOptions" (myGridReady)="doOnGridReadyDocRef($event)" [export]="false">
+              </app-ag-grid>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-custom-modal-pop-up [basicSetting]="renewpopupSetting" [template]="checkOrderRenew"></app-custom-modal-pop-up>
+
+<ng-template #checkOrderRenew>
+  <div>
+    <p>This subscription has not been paid in full.Do you wish to renew it anyway. </p>
+
+    <br/>
+    <p>Order: {{orderhdrId}}</p>
+    <p>Item: {{item}}</p>
+  </div>
+  <div>
+    <div class="col-sm-12">
+      <div class="note-footer-btn" align="right">
+        <button type="button" class="btn btn-primary" (click)="yesOrderRenew()"> Yes</button>
+        <button type="button" class="btn btn-primary" (click)="noOrderRenew()"> No</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+
+<!-- <div *ngIf="page == 'addorder'">
+  <ng-template [ngTemplateOutlet]="addorder"></ng-template>
+</div>
+<ng-template #addorder>
+  <app-add-order></app-add-order>
+</ng-template>
+
+<div *ngIf="page == 'editorder'">
+  <ng-template [ngTemplateOutlet]="editorder"></ng-template>
+</div>
+<ng-template #editorder>
+  <app-edit-order [orderhdrId]="orderCodeId" [orderItemType]="orderItemType" [customerId]="customerId"></app-edit-order>
+</ng-template> -->

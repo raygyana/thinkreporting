@@ -1,0 +1,537 @@
+<section class="container-fluid my-3 custRow ">
+  <my-tabs #staticTabs>
+    <my-tab tabTitle="Description" [tabId]="RENEWAL_DESCRIPTION_REPORT">
+      <div class="whiteBg tabContent">
+        <form name="form" #f="ngForm" ngNativeValidate>
+
+
+          <fieldset>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">Main Purpose</label>
+                  <input type="text" class="form-control" placeholder="Renewal">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">Description
+                    <span class="mandatory">*</span>
+                  </label>
+                  <input class="form-control" [(ngModel)]="description1" #description name="description1" id="description" required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group ">
+                  <label for="user">Default Job Priority</label>
+                  <input type="text" class="form-control" placeholder=" ">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group ">
+                  <label for="user">Extract Filter</label>
+                  <app-dropdown-with-description name="test" [(ngModel)]="dropDown" [basicSetting]="basicSetting">
+                  </app-dropdown-with-description>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">Default Job Queue</label>
+                  <app-dropdown-with-description name="test" [(ngModel)]="dropDown" [basicSetting]="basicSetting6">
+                  </app-dropdown-with-description>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">Output Sort</label>
+                  <app-dropdown-with-description name="test" [(ngModel)]="dropDown" [basicSetting]="basicSetting">
+                  </app-dropdown-with-description>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">SQL Script</label>
+                  <input type="text" class="form-control" placeholder=" ">
+                </div>
+              </div>
+
+
+            </div>
+            <div class="row">
+              <div class="col-4">
+
+                <div class="form-check form-check-inline">
+                  <label class="custom-control custom-checkbox mr-0">
+                    <input type="checkbox" class="custom-control-input" disabled="">
+
+                    <span class="  custom-control-label">Hold For Manual Select</span>
+                  </label>
+                </div>
+
+
+                <div class="form-check form-check-inline">
+                  <label class="custom-control custom-checkbox ">
+                    <input type="checkbox" class="custom-control-input" checked>
+
+                    <span class="  custom-control-label">Active</span>
+                  </label>
+                </div>
+
+
+
+                <div class="form-check form-check-inline">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" #repeatCheckBox (click)="repeatCheckBoxClick($event)" class="custom-control-input">
+
+                    <span class="  custom-control-label">Repeating</span>
+                  </label>
+                </div>
+
+
+
+              </div>
+              <div class="col-md-8">
+                <app-process-repeating [is_edit]="!is_edit"></app-process-repeating>
+              </div>
+
+            </div>
+          </fieldset>
+          <div class="row pt-3">
+            <div class="col-12">
+              <div class="border mt-4 p-2 pt-4">
+                <fieldset>
+                  <legend class="text-uppercase">Also Include </legend>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-check form-check-inline">
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" disabled="">
+
+                          <span class="  custom-control-label">Audit</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-check form-check-inline">
+                        <label class="custom-control custom-checkbox ">
+                          <input type="checkbox" class="custom-control-input " disabled="">
+                          <span class="custom-control-indicator "></span>
+                          <span class="  custom-control-label ">Inserts</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-check form-check-inline ">
+                        <label class="custom-control custom-checkbox ">
+                          <input type="checkbox" class="custom-control-input " disabled="">
+                          <span class="custom-control-indicator "></span>
+                          <span class="  custom-control-label ">Splits</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-check form-check-inline ">
+                        <label class="custom-control custom-checkbox ">
+                          <input type="checkbox" class="custom-control-input " disabled="">
+                          <span class="custom-control-indicator "></span>
+                          <span class="  custom-control-label ">Renewals</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-check form-check-inline ">
+                        <label class="custom-control custom-checkbox ">
+                          <input type="checkbox" class="custom-control-input " disabled="">
+                          <span class="custom-control-indicator "></span>
+                          <span class="  custom-control-label ">Billing</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-check form-check-inline ">
+                        <label class="custom-control custom-checkbox ">
+                          <input type="checkbox" class="custom-control-input " disabled="">
+                          <span class="custom-control-indicator "></span>
+                          <span class="  custom-control-label ">Installment</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <!-- <div class="col-md-12"> -->
+                    <div class="col-md-3">
+                      <div class="form-check form-check-inline ">
+                        <label class="custom-control custom-checkbox ">
+                          <input #abcde type="checkbox" class="custom-control-input" id='abc' #checkBox="ngModel" [(ngModel)]="shown" name="checkBox" [checked]="checked" (click)="Checked($event)" />
+                          <span class="custom-control-indicator "></span>
+                          <span class="  custom-control-label ">Auto Renewals</span>
+                        </label>
+                      </div>
+                    </div>
+
+
+                    <!-- <div *ngIf='checked'> -->
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="user">Auto Renewal Days:
+                          <span class="mandatory">*</span>
+                        </label>
+                        <!-- <div class="col-3 pl-0"> -->
+                        <input [disabled]="!is_edit1" type="number" min="0" step=" 1 " class="form-control " placeholder="Select The No of Days " [(ngModel)]="notification1 " onkeypress='return event.charCode >= 48 && event.charCode <= 57' title="Numbers only" #notification
+                          name="notification " id="notification " required>
+                        <!-- </div> -->
+                      </div>
+                    </div>
+                    <!-- </div> -->
+
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class="col-12">
+              <div class="border mt-4 p-2 pt-4">
+                <fieldset>
+                  <legend class="text-uppercase">Order Class (es) Included</legend>
+                  <div class="row justify-content-between align-items-center ">
+                    <div class="col-md-6 ">
+                      <div class="d-flex flex-row align-items-center ">
+                        <div class="p-2 ">Order Class</div>
+                        <div class="col-3 p-2">
+                          <app-dropdown-with-description name="test" [(ngModel)]="dropDown" [basicSetting]="basicSetting1">
+                          </app-dropdown-with-description>
+                        </div>
+                        <div class="pt-3 ">
+                          <div class="form-check form-check-inline">
+                            <label class="custom-control custom-checkbox mr-0">
+                              <input type="checkbox" class="custom-control-input">
+
+                              <span class="  custom-control-label">Include All</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 ">
+                      <div class="d-flex flex-row-reverse align-items-center ">
+
+                        <div class=" col-3 p-2 ">
+                          <app-dropdown-with-description name="test" [(ngModel)]="dropDown" (change)="setFilterModel($event)" [basicSetting]="basicSetting2">
+                          </app-dropdown-with-description>
+
+                        </div>
+                        <div class="p-2 ">Show :</div>
+                      </div>
+                      <div class="clearfix "></div>
+                    </div>
+                  </div>
+                  <div class="agGridSize">
+                    <app-ag-grid [name]="'RenewalDescReports'" [myGridOptions]="gridOptionsReports" (myGridReady)="doOnGridReadyRenewalDescriptionReports($event)"></app-ag-grid>
+                  </div>
+                </fieldset>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class="col-12">
+              <div class="border mt-4 p-2 pt-4">
+                <fieldset>
+                  <legend class="text-uppercase">Label Format Attributes</legend>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group ">
+                        <label for="user">Length</label>
+                        <input type="text" class="form-control" placeholder="50">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group ">
+                        <label for="user">Group</label>
+                        <app-dropdown-with-description name="test" [(ngModel)]="dropDown" [basicSetting]="basicSetting4">
+                        </app-dropdown-with-description>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group ">
+                        <label for="user">Keyline</label>
+                        <app-dropdown-with-description name="test" [(ngModel)]="dropDown" [basicSetting]="basicSetting5">
+                        </app-dropdown-with-description>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+
+          <div class="row pt-3">
+            <div class="col-6">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="border mt-4 p-2 pt-4">
+                    <fieldset>
+                      <legend class="text-uppercase">Gracing</legend>
+                      <div class="form-check ">
+                        <label class="custom-control custom-checkbox ">
+                          <input type="checkbox" class="custom-control-input ">
+
+                          <span class="  custom-control-label">Gracing New Expires</span>
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <label class="custom-control custom-checkbox ">
+                          <input type="checkbox" class="custom-control-input ">
+
+                          <span class="  custom-control-label">Serve Current Graces</span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class=" col-md-7 pt-4 mt-4">
+
+                  <div class="row">
+                    <div class="col-6 p-0 pr-2">
+                      <div class="form-group ">
+                        <label for="user">Bundle Threshold</label>
+                        <input type="text" class="form-control" placeholder=" ">
+                      </div>
+                    </div>
+                    <div class="col-6 p-0 pl-2">
+                      <div class="form-group ">
+                        <label for="user">DD Days Passed for Pulls</label>
+                        <input type="text" class="form-control" placeholder=" " disabled="">
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="border mt-4 p-2 pt-4">
+                <fieldset>
+                  <legend class="text-uppercase">Inventory</legend>
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group ">
+                        <label for="user">Priority Sort</label>
+                        <input type="text" class="form-control" placeholder=" " disabled="">
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group ">
+                        <label for="user"> </label>
+                        <input type="text" class="form-control" placeholder=" " disabled="">
+                      </div>
+                    </div>
+                    <div class="col-md-3 pt-4">
+                      <div class="form-check pt-2">
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input " disabled="">
+                          <span class="custom-control-indicator disabled"></span>
+                          <span class="  custom-control-label disabled">Picklist</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <app-process-edit-footer [form]="f" (onDoSave)=doOnSave($event)></app-process-edit-footer>
+    </my-tab>
+
+
+    <my-tab tabTitle="Output" [tabId]="RENEWAL_OUTPUT_REPORT">
+      <app-output></app-output>
+    </my-tab>
+
+    <my-tab tabTitle="Renewal" [tabId]="RENEWAL_REPORT">
+      <!-- <div class="whiteBg tabContent">
+        <div class="row">
+          <div class="col-12 pt-3 pb-2">
+            <div class="form-check form-check-inline pl-1">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                  
+                <span class="  custom-control-label">Renewal for Requalification</span>
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                  
+                <span class="  custom-control-label">Generate Auto Renewal Offers</span>
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                  
+                <span class="  custom-control-label">Generate Notices for Package Members</span>
+              </label>
+            </div>
+          </div>
+
+
+          <div class="col-12">
+            <div class="border mt-4 p-2 pt-4">
+              <fieldset>
+                <legend class="text-uppercase">renewal Definition</legend>
+                <div class="agGridSize">
+                  <app-ag-grid [name]="'RenewalDefinitionReports'" (myGridReady)="doOnGridReadyRenewalDefinitionReports($event)"></app-ag-grid>
+                </div>
+              </fieldset>
+            </div>
+            <div class="pt-4">
+              <div class="border mt-4 p-2 pt-4">
+                <fieldset>
+                  <legend class="text-uppercase">Applies to These Order Classes</legend>
+
+                  <div class="col-md-12">
+                    <div class="d-flex flex-row-reverse align-items-center ">
+
+                      <div class=" col-3 p-2 ">
+                        <app-dropdown-with-description name="test" [(ngModel)]="dropDown" [basicSetting]="basicSetting2" (change)="setFilterModel1($event)">
+                        </app-dropdown-with-description>
+
+                      </div>
+                      <div class="p-2 ">Show :</div>
+                    </div>
+                    <div class="clearfix "></div>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input">
+                        
+                      <span class="  custom-control-label">Generate Renewal Codes</span>
+                    </label>
+                  </div>
+                  <div class="agGridSize">
+                    <app-ag-grid [name]="'RenewalOrderClassReports'" [myGridOptions]="gridOptionsReports1" (myGridReady)="doOnGridReadyRenewalOrderClassReports($event)"></app-ag-grid>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="pt-4">
+                <div class="border mt-4 p-2 pt-4">
+                  <fieldset>
+                    <legend class="text-uppercase">Efforts</legend>
+                    <div class="agGridSize">
+                      <app-ag-grid [name]="'RenewalEffortsReports'" [myGridOptions]="gridOptionsReports" (myGridReady)="doOnGridReadyRenewalEffortsReports($event)"></app-ag-grid>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6 pt-3">
+                  <div class="border mt-4 p-2 pt-4">
+                    <fieldset>
+
+                      <div class="row">
+
+                        <div class="col-md-4">
+                          <div class="form-group ">
+                            <label for="user">Renewal Card</label>
+                            <app-dropdown-with-description name="test" [(ngModel)]="dropDown" [basicSetting]="basicSetting3">
+                            </app-dropdown-with-description>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group ">
+                            <label for="user">Nth Definition</label>
+                            <app-dropdown-with-description name="test" [(ngModel)]="dropDown" [basicSetting]="basicSetting">
+                            </app-dropdown-with-description>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group ">
+                            <label for="user">Volume Group</label>
+                            <input type="text" class="form-control" placeholder=" ">
+                          </div>
+                        </div>
+
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="col-6 pt-3">
+                  <div class="border mt-4 p-2 pt-4">
+                    <fieldset>
+                      <legend class="text-uppercase">Generate Group Bar Codes</legend>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-check ">
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input ">
+                              <span class="custom-control-indicator disabled"></span>
+                              <span class="  custom-control-label disabled">renew-to </span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input ">
+                              <span class="custom-control-indicator disabled"></span>
+                              <span class="  custom-control-label disabled">Renewal Definition</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check ">
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input ">
+                              <span class="custom-control-indicator disabled"></span>
+                              <span class="  custom-control-label disabled">Currency</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check ">
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input ">
+                              <span class="custom-control-indicator disabled"></span>
+                              <span class="  custom-control-label disabled">Order Class</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check ">
+                            <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input ">
+                              <span class="custom-control-indicator disabled"></span>
+                              <span class="  custom-control-label disabled">Order Number</span>
+                            </label>
+                          </div>
+                        </div>
+
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <app-renewal-tab></app-renewal-tab>
+    </my-tab>
+
+
+  </my-tabs>
+</section>

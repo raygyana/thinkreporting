@@ -1,0 +1,16 @@
+<div class="row">
+  &nbsp;&nbsp;&nbsp;&nbsp; NOTE: On selct, Payment will be transfered to the intended Customer.
+  <div class="col-12">
+    <div class="agGridSize">
+      <app-ag-grid [name]="'paymentsReports'" [myGridOptions]="gridOptions" (myGridReady)="doOnGridReadyPaymentsReports($event)"></app-ag-grid>
+    </div>
+  </div>
+</div>
+
+<!-- <app-custom-modal-pop-up [basicSetting]="TransferAlertSetting" [template]="TransferAlert"></app-custom-modal-pop-up>
+
+<ng-template #TransferAlert>
+  <div>
+    <p>Payment can not be transfered to the Same customer</p>
+  </div>
+</ng-template> -->

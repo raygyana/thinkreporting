@@ -1,0 +1,389 @@
+<section class="container-fluid my-3 custRow">
+  <my-tabs #staticTabs>
+    <my-tab tabTitle="Description" [tabId]="BACS_BILLING_DESCRIPTION_REPORT">
+      <div class="whiteBg tabContent">
+
+        <div class="border m-1 p-2 pt-4">
+          <fieldset>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">Main purpose</label>
+                  <input type="text" class="form-control" placeholder="BACS Billing">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">ID</label>
+                  <input type="text" class="form-control" placeholder=" ">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">Description</label>
+                  <input type="text" class="form-control" placeholder=" ">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group ">
+                  <label for="user">Default Priority</label>
+                  <input type="text" class="form-control" placeholder=" ">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group ">
+                  <label for="user">Extract Filter</label>
+                  <select class="form-control custom-select">
+
+                    <option>auto</option>
+                    <option> </option>
+
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">Default Queue</label>
+                  <select class="form-control custom-select">
+
+                    <option>auto</option>
+                    <option> </option>
+
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="user">Days Passed</label>
+                  <input type="text" class="form-control" placeholder=" ">
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-check form-check-inline">
+                  <label class="custom-control custom-checkbox ">
+                    <input type="checkbox" class="custom-control-input">
+
+                    <span class="  custom-control-label">Active</span>
+                  </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <label class="custom-control custom-checkbox ">
+                    <input type="checkbox" class="custom-control-input">
+
+                    <span class="  custom-control-label">Skip Manual Pay Response</span>
+                  </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <label class="custom-control custom-checkbox ">
+                    <input type="checkbox" class="custom-control-input">
+
+                    <span class="  custom-control-label">Leave Account Number in Plain Text</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="row pt-3">
+          <div class="col-12">
+            <div class="border m-1 p-2 pt-4">
+              <fieldset>
+                <legend class="text-uppercase">Order Class (es) Included</legend>
+                <div class="row justify-content-between align-items-center ">
+                  <div class="col-md-6 ">
+                    <div class="d-flex flex-row align-items-center ">
+                      <div class="p-2 ">OC Filter</div>
+                      <div class="col-3 p-2">
+                        <select class="form-control custom-select">
+                          <option>All</option>
+                          <option>Subscriptions</option>
+                          <option>Subs'n'Pkgs</option>
+                          <option>Product</option>
+                        </select>
+                      </div>
+                      <div class="pt-3 ">
+                        <div class="form-check form-check-inline">
+                          <label class="custom-control custom-checkbox mr-0">
+                            <input type="checkbox" class="custom-control-input">
+
+                            <span class="  custom-control-label">Include All OC's</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 ">
+                    <div class="d-flex flex-row-reverse align-items-center ">
+                      <div class=" col-3 p-2 ">
+                        <select class="form-control custom-select">
+                          <option>All</option>
+                          <option>Selected</option>
+                        </select>
+                      </div>
+                      <div class="p-2 ">Show :</div>
+                    </div>
+                    <div class="clearfix "></div>
+                  </div>
+                </div>
+                <table class="table table-responsive table-striped border">
+                  <thead>
+                    <tr>
+                      <th>
+                        <div class="form-check m-0">
+                          <label class="custom-control custom-checkbox cust-form-label">
+                            <input type="checkbox" class="custom-control-input">
+
+                            <span class="  custom-control-label"></span>
+                          </label>
+                        </div>
+                      </th>
+                      <th>ID</th>
+                      <th>Order Class</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="form-check m-0">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+
+                            <span class="  custom-control-label"></span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>6</td>
+                      <td>pub</td>
+                      <td>demo</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check m-0">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+
+                            <span class="  custom-control-label"></span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>13</td>
+                      <td>pub</td>
+                      <td>demo</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check m-0">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+
+                            <span class="  custom-control-label"></span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>5</td>
+                      <td>pub</td>
+                      <td>demo</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </fieldset>
+            </div>
+
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col-12">
+            <div class="border m-1 p-2 pt-4">
+              <fieldset>
+                <legend class="text-uppercase">BACS Selection Currencies</legend>
+                <div class="row justify-content-between align-items-center ">
+                  <div class="col-md-12 ">
+                  </div>
+                </div>
+                <table class="table table-responsive table-striped border">
+                  <thead>
+                    <tr>
+                      <th>Ind</th>
+                      <th>Code</th>
+                      <th>Description</th>
+                      <th>Symb</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="form-check m-0">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+
+                            <span class="  custom-control-label"></span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>AUD</td>
+                      <td>Austrialia Dollar</td>
+                      <td>AUD</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check m-0">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+
+                            <span class="  custom-control-label"></span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>BFR</td>
+                      <td>Belgin Franc</td>
+                      <td>BFR</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check m-0">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+
+                            <span class="  custom-control-label"></span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>BRL</td>
+                      <td>Brazlian</td>
+                      <td>BRL</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check m-0">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+
+                            <span class="  custom-control-label"></span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>EUR</td>
+                      <td>Euro</td>
+                      <td>EUR</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-right my-3">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              <i class="fa fa-floppy-o"></i> Save
+            </button>
+            <button type="button" class="btn btn-light" data-dismiss="modal">
+              <i class="fa fa-times" aria-hidden="true"></i> Cancel
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </my-tab>
+
+
+    <my-tab tabTitle="Installment" [tabId]="BACS_BILLING_REPORT">
+      <div class="whiteBg tabContent">
+        <div class="row">
+          <div class="col-12">
+            <div class="border m-1 p-2 pt-4">
+              <fieldset>
+                <legend class="text-uppercase">Installment Plans</legend>
+                <div class="row justify-content-between align-items-center ">
+                  <div class="col-md-12 ">
+                  </div>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="custom-control custom-checkbox ">
+                    <input type="checkbox" class="custom-control-input">
+
+                    <span class="  custom-control-label">Include All</span>
+                  </label>
+                </div>
+                <table class="table table-responsive table-striped border">
+
+                  <thead>
+                    <tr>
+                      <th>Ind</th>
+                      <th>ID</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="form-check m-0">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+
+                            <span class="  custom-control-label"></span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>1</td>
+                      <td>QA Insti Plan</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check m-0">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+
+                            <span class="  custom-control-label"></span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>2</td>
+                      <td>Quarterly</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="form-check m-0">
+                          <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+
+                            <span class="  custom-control-label"></span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>3</td>
+                      <td>Annual</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </fieldset>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-right my-3">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              <i class="fa fa-floppy-o"></i> Save
+            </button>
+            <button type="button" class="btn btn-light" data-dismiss="modal">
+              <i class="fa fa-times" aria-hidden="true"></i> Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </my-tab>
+
+    <my-tab tabTitle="Otput" [tabId]="BACS_BILLING_OUTPUT_REPORT">
+      <app-output></app-output>
+    </my-tab>
+
+  </my-tabs>
+</section>
