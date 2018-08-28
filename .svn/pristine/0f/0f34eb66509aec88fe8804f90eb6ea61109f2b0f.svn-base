@@ -1,4 +1,0 @@
-.txtEllipsis {
-  text-overflow: ellipsis;
-  overflow: hidden;
-}

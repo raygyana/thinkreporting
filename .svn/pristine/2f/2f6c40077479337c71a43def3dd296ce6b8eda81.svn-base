@@ -1,3 +1,0 @@
-<ss-multiselect-dropdown #myMultiSector [options]="myOptions" [(ngModel)]="optionsModel" [texts]="myTexts" [settings]="mySettings" (ngModelChange)="onChange($event)"
-  (onRemoved)="onRemove($event)">
-</ss-multiselect-dropdown>

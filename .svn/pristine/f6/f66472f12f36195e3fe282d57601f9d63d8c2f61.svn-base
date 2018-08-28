@@ -1,6 +1,0 @@
-<app-top-menu-bar>
-</app-top-menu-bar>
-<br>
-<div class="centerBox">
-  <router-outlet></router-outlet>
-</div>
